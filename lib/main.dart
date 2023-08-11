@@ -1,10 +1,27 @@
 import 'package:bedtime/injectable_initalizer.dart';
+import 'package:bedtime/pages/generator.page.dart';
+import 'package:bedtime/pages/welcome.page.dart';
 import 'package:bedtime/services/http.service.dart';
 import 'package:bedtime/widgets/chat-response.widget.dart';
 import 'package:bedtime/widgets/message-box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:go_router/go_router.dart';
+import 'generated/l10n.dart';
+
+final GoRouter router = GoRouter(routes: <RouteBase>[
+  GoRoute(
+    path: '/',
+    builder: (context, state) => const WelcomePage(),
+    routes: [
+      GoRoute(
+        path: 'generator',
+        builder: (context, state) => const GeneratorPage(),
+      ),
+    ],
+  ),
+]);
 
 void main() async {
   await dotenv.load();
@@ -17,22 +34,20 @@ class BedtimeStories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: router,
       localizationsDelegates: const [
+        S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate
       ],
-      supportedLocales: const [
-        Locale('en', 'US'),
-        Locale('pl', 'PL')
-      ],
+      supportedLocales: S.delegate.supportedLocales,
       title: 'Chat App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
     );
   }
 }
@@ -58,7 +73,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4),),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(4),
+        ),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text("Chat"),
       ),
@@ -73,7 +90,8 @@ class _HomePageState extends State<HomePage> {
                 ListView.builder(
                   itemCount: _messages.length,
                   reverse: true,
-                  itemBuilder: (BuildContext context, int index) => ChatResponse(
+                  itemBuilder: (BuildContext context, int index) =>
+                      ChatResponse(
                     content: _messages[index],
                   ),
                 ),

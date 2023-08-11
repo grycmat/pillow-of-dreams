@@ -2,15 +2,14 @@ import 'dart:convert';
 
 class Chat {
   String model;
+  bool? stream;
   List<Message> messages;
 
-  Chat({
-    required this.model,
-    required this.messages,
-  });
+  Chat({required this.model, required this.messages, this.stream});
 
   factory Chat.fromPrompt(String prompt) => Chat(
         model: "gpt-3.5-turbo",
+        stream: true,
         messages: [
           Message(role: 'user', content: prompt),
         ],
@@ -27,6 +26,7 @@ class Chat {
 
   Map<String, dynamic> toJson() => {
         'model': model,
+        'stream': stream,
         'messages': List<dynamic>.from(
           messages.map(
             (x) => x.toJson(),
