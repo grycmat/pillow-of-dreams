@@ -20,6 +20,7 @@ dependencies:
   shared_preferences: 2.0.15
   sqflite: 2.2.6
   timeago: 3.2.2
+  google_fonts: ^5.1.0
   url_launcher: 6.1.10
   cupertino_icons: ^1.0.2
   flutter_dotenv: ^5.1.0
@@ -47,7 +48,14 @@ flutter:
     - .env
     - images/welcome.jpeg
 
-  # fonts:
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: fonts/Lato-Regular.ttf
+        - asset: fonts/Lato-Bold.ttf
+          weight: 700
+        - asset: fonts/Lato-Italic.ttf
+          style: italic
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

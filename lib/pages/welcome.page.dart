@@ -9,18 +9,28 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image(
+            const Image(
               image: AssetImage('images/welcome.jpeg'),
             ),
-            Text("Welcome to Bedtime Stories!"),
-            Text("We'll help you generate a story for your child to read!"),
-            Text("Let's get started!"),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Welcome to DreamWorld Tales!", style: Theme.of(context).textTheme.headlineSmall,),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                  "Say goodbye to ordinary bedtime stories. With us, you and your child can co-create unique and captivating stories together. Every night becomes an opportunity for imagination to soar. 🌙✨",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16),),
+            ),
             ElevatedButton(
                 onPressed: () {
                   context.go('/generator');
                 },
-                child: Text("Get Started"))
+                child: const Text("Let's get started!"))
           ],
         ),
       ),
