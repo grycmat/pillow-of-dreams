@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
   _sendPrompt(String prompt) async {
     final completion = await getIt<HttpService>().sendPrompt(prompt);
     setState(() {
-      _messages.add(completion.choices[0].message.content);
+      _messages.add(completion.choices[0].message!.content);
     });
   }
 

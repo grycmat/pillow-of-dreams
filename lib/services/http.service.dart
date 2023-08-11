@@ -38,7 +38,7 @@ class HttpService {
    Future<http.StreamedResponse> sendPromptGetStream() async {
     var url = Uri.parse(dotenv.env['BASE_URL']!);
 
-    final chat = _createChatMessage("Say something");
+    final chat = _createChatMessage("Write me something nice");
     final data = jsonEncode(chat);
     var request = http.Request('POST', url);
     request.body = data;
