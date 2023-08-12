@@ -42,6 +42,7 @@ class BedtimeStories extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       title: 'Chat App',
       theme: ThemeData(
+        brightness: Brightness.dark,
         fontFamily: 'Lato',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
         useMaterial3: true,

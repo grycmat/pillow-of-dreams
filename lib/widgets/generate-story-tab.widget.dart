@@ -29,7 +29,7 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {
 
   @override
   void initState() {
-    getIt.get<HttpService>().sendPromptGetStream().then((value) {
+    getIt.get<HttpService>().sendPromptForStream().then((value) {
       value.stream.transform(utf8.decoder).listen((event) {
         var subs = event.substring(6);
         try {

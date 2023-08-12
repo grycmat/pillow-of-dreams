@@ -17,4 +17,8 @@ class GptService {
 
     return response;
   }
+
+  getHeroOptions() {
+
+  }
 }

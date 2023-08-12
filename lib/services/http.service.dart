@@ -12,10 +12,9 @@ class HttpService {
 
   HttpService({required this.dio});
 
-  Chat _createChatMessage(String prompt) => Chat.fromPrompt(prompt);
+  Chat _createChatMessage(String prompt, {bool stream = false}) => Chat.fromPrompt(prompt, stream: stream);
 
   Future<ChatCompletion> sendPrompt(String prompt) async {
-    try {
       final chat = _createChatMessage(prompt);
       final data = jsonEncode(chat);
       final response = await dio.post(dotenv.env['BASE_URL']!,
@@ -27,18 +26,13 @@ class HttpService {
       final chatCompletion = ChatCompletion.fromJson(response.data);
 
       return chatCompletion;
-    } catch (e) {
-      print ("error error error");
-      print(e);
 
-      rethrow;
-    }
   }
   
-   Future<http.StreamedResponse> sendPromptGetStream() async {
+   Future<http.StreamedResponse> sendPromptForStream() async {
     var url = Uri.parse(dotenv.env['BASE_URL']!);
 
-    final chat = _createChatMessage("Write me a bedtime story about a dragon who is very small");
+    final chat = _createChatMessage("Write me a bedtime story about a dragon who is very small", stream: true);
     final data = jsonEncode(chat);
     var request = http.Request('POST', url);
     request.body = data;

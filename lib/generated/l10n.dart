@@ -49,6 +49,36 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Say goodbye to ordinary bedtime stories. With us, you and your child can co-create unique and captivating stories together. Every night becomes an opportunity for imagination to soar. 🌙✨`
+  String get welcomeMessage {
+    return Intl.message(
+      'Say goodbye to ordinary bedtime stories. With us, you and your child can co-create unique and captivating stories together. Every night becomes an opportunity for imagination to soar. 🌙✨',
+      name: 'welcomeMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Let's get started!`
+  String get letsGetStarted {
+    return Intl.message(
+      'Let\'s get started!',
+      name: 'letsGetStarted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome to DreamWorld Tales!`
+  String get welcomeTitle {
+    return Intl.message(
+      'Welcome to DreamWorld Tales!',
+      name: 'welcomeTitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

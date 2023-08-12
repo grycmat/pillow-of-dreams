@@ -34,8 +34,11 @@ class SelectionTab extends StatelessWidget {
               InkWell(
                 onTap: () => optionSelected(option.value),
                 child: Chip(
-                  label: Text(option.key,
-                      style: Theme.of(context).textTheme.bodyLarge),
+                  label: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Text(option.key,
+                        style: Theme.of(context).textTheme.bodyLarge),
+                  ),
                 ),
               )
             ]

@@ -7,9 +7,9 @@ class Chat {
 
   Chat({required this.model, required this.messages, this.stream});
 
-  factory Chat.fromPrompt(String prompt) => Chat(
+  factory Chat.fromPrompt(String prompt, {bool stream = false}) => Chat(
         model: "gpt-3.5-turbo",
-        stream: true,
+        stream: stream,
         messages: [
           Message(role: 'user', content: prompt),
         ],
