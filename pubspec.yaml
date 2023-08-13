@@ -47,6 +47,7 @@ flutter:
   assets:
     - .env
     - images/welcome.jpeg
+    - images/welcome.png
 
   fonts:
     - family: Lato

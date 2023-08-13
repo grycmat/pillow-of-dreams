@@ -12,27 +12,32 @@ class HttpService {
 
   HttpService({required this.dio});
 
-  Chat _createChatMessage(String prompt, {bool stream = false}) => Chat.fromPrompt(prompt, stream: stream);
+  Chat _createChatMessage(String prompt, {bool stream = false}) =>
+      Chat.fromPrompt(prompt, stream: stream);
 
   Future<ChatCompletion> sendPrompt(String prompt) async {
-      final chat = _createChatMessage(prompt);
-      final data = jsonEncode(chat);
-      final response = await dio.post(dotenv.env['BASE_URL']!,
-          data: data,
-          options: Options(headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer ${dotenv.env['API_KEY']}"
-          }));
-      final chatCompletion = ChatCompletion.fromJson(response.data);
+    print('Prompt: $prompt');
+    final chat = _createChatMessage(prompt);
+    final data = jsonEncode(chat);
+    final response = await dio.post(dotenv.env['BASE_URL']!,
+        data: data,
+        options: Options(headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer ${dotenv.env['API_KEY']}"
+        }));
+    print(response.data);
+    final chatCompletion = ChatCompletion.fromJson(response.data);
 
-      return chatCompletion;
-
+    return chatCompletion;
   }
-  
-   Future<http.StreamedResponse> sendPromptForStream() async {
+
+  Future<http.StreamedResponse> sendPromptForStream(
+      {String? age, String? hero, String? genre, String? companion}) async {
     var url = Uri.parse(dotenv.env['BASE_URL']!);
 
-    final chat = _createChatMessage("Write me a bedtime story about a dragon who is very small", stream: true);
+    final chat = _createChatMessage(
+        "Write me a $genre bedtime story for child of age $age with hero $hero and they companion $companion",
+        stream: true);
     final data = jsonEncode(chat);
     var request = http.Request('POST', url);
     request.body = data;

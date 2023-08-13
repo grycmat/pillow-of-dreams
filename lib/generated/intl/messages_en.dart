@@ -22,8 +22,20 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "addCompanions": MessageLookupByLibrary.simpleMessage(
+            "Add companions to your hero\'s journey – choose friends for an unforgettable adventure!"),
+        "chooseGenre": MessageLookupByLibrary.simpleMessage(
+            "Embark on a storytelling journey – choose a genre to set the stage!"),
+        "discoverHero": MessageLookupByLibrary.simpleMessage(
+            "Discover the hero of your dreams – pick the main character for your adventure!"),
+        "gatheringCompanions": MessageLookupByLibrary.simpleMessage(
+            "Gathering a group of wonderful companions for your hero... Just a moment!"),
         "letsGetStarted":
             MessageLookupByLibrary.simpleMessage("Let\'s get started!"),
+        "selectAge": MessageLookupByLibrary.simpleMessage(
+            "Help us tailor enchanting stories by selecting your child\'s age"),
+        "summoningHero": MessageLookupByLibrary.simpleMessage(
+            "Summoning a cast of captivating heroes for you... Please wait a moment!"),
         "welcomeMessage": MessageLookupByLibrary.simpleMessage(
             "Say goodbye to ordinary bedtime stories. With us, you and your child can co-create unique and captivating stories together. Every night becomes an opportunity for imagination to soar. 🌙✨"),
         "welcomeTitle":

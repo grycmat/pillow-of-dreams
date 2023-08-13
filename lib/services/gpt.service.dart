@@ -1,5 +1,6 @@
 import 'package:bedtime/models/chat_completion.model.dart';
 import 'package:bedtime/services/http.service.dart';
+import 'package:http/http.dart';
 import 'package:injectable/injectable.dart';
 
 @singleton
@@ -8,17 +9,26 @@ class GptService {
 
   GptService({required this.http});
 
-  Future<ChatCompletion> generateStory(
-      {required String age,
-      required String genre,
-      required String companion}) async {
-    final response = await http.sendPrompt(
-        "Generate fantasy bedtime story for 3 year old about a superhero with a loyal friend");
+  Future<StreamedResponse> generateStory(
+      {String? age, String? genre, String? hero, String? companion}) async {
+    final response = await http.sendPromptForStream(
+        age: age, hero: hero, genre: genre, companion: companion);
 
     return response;
   }
 
-  getHeroOptions() {
+  Future<ChatCompletion> getHeroOptions(String age, String genre) async {
+    final response = await http.sendPrompt(
+        "Answer as simple as possible. Create some heroes for bedtime story of genre $genre for child in age range $age. Separate names with commas. Do not add comment");
 
+    return response;
+  }
+
+  Future<ChatCompletion> getHeroCompanionOptions(
+      String age, String genre, String hero) async {
+    final response = await http.sendPrompt(
+        "Create some companions for hero $hero of bedtime story of genre $genre for child in age range $age. Separate names with commas. Do not add comment");
+
+    return response;
   }
 }

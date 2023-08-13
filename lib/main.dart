@@ -1,3 +1,4 @@
+import 'package:bedtime/app.theme.dart';
 import 'package:bedtime/injectable_initalizer.dart';
 import 'package:bedtime/pages/generator.page.dart';
 import 'package:bedtime/pages/welcome.page.dart';
@@ -40,13 +41,10 @@ class BedtimeStories extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate
       ],
       supportedLocales: S.delegate.supportedLocales,
-      title: 'Chat App',
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        fontFamily: 'Lato',
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
-        useMaterial3: true,
-      ),
+      title: 'Bedtime Stories',
+      darkTheme: AppTheme.darkTheme(),
+      theme: AppTheme.lightTheme(),
+      themeMode: ThemeMode.dark,
     );
   }
 }

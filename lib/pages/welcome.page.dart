@@ -16,7 +16,7 @@ class WelcomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Image(
-              image: AssetImage('images/welcome.jpeg'),
+              image: AssetImage('images/welcome.png'),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -33,11 +33,14 @@ class WelcomePage extends StatelessWidget {
                 style: const TextStyle(fontSize: 16),
               ),
             ),
-            CupertinoButton(
-              onPressed: () {
-                context.go('/generator');
-              },
-              child: Text(S.of(context).letsGetStarted),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CupertinoButton(
+                onPressed: () {
+                  context.go('/generator');
+                },
+                child: Text(S.of(context).letsGetStarted),
+              ),
             )
           ],
         ),
