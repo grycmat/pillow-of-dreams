@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:bedtime/models/message.model.dart';
+
 class ChatCompletion {
   String id;
   String object;
@@ -14,6 +16,10 @@ class ChatCompletion {
     required this.choices,
     required this.usage,
   });
+
+
+  // could be sent as array, but most of the times we need only first message
+  get firstMessage => choices.first.message;
 
   factory ChatCompletion.fromJson(Map<String, dynamic> json) => ChatCompletion(
         id: json['id'],
@@ -59,26 +65,6 @@ class Choice {
         'message': message?.toJson(),
         'delta': delta?.toJson(),
         'finish_reason': finishReason,
-      };
-}
-
-class Message {
-  String role;
-  String content;
-
-  Message({
-    required this.role,
-    required this.content,
-  });
-
-  factory Message.fromJson(Map<String, dynamic> json) => Message(
-        role: json['role'],
-        content: json['content'],
-      );
-
-  Map<String, dynamic> toJson() => {
-        'role': role,
-        'content': content,
       };
 }
 

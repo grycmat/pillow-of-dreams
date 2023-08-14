@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:bedtime/state/conversation.state.dart';
 import 'package:http/http.dart' as http;
 import 'package:bedtime/models/chat.model.dart';
 import 'package:bedtime/models/chat_completion.model.dart';
@@ -9,8 +10,9 @@ import 'package:injectable/injectable.dart';
 @singleton
 class HttpService {
   final Dio dio;
+  final ConversationState conversationState;
 
-  HttpService({required this.dio});
+  HttpService({required this.dio, required this.conversationState});
 
   Chat _createChatMessage(String prompt, {bool stream = false}) =>
       Chat.fromPrompt(prompt, stream: stream);
@@ -18,6 +20,7 @@ class HttpService {
   Future<ChatCompletion> sendPrompt(String prompt) async {
     print('Prompt: $prompt');
     final chat = _createChatMessage(prompt);
+    conversationState.addMessage(chat.firstMessage);
     final data = jsonEncode(chat);
     final response = await dio.post(dotenv.env['BASE_URL']!,
         data: data,
@@ -27,6 +30,7 @@ class HttpService {
         }));
     print(response.data);
     final chatCompletion = ChatCompletion.fromJson(response.data);
+    conversationState.addMessage(chatCompletion.firstMessage);
 
     return chatCompletion;
   }

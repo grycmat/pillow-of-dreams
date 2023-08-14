@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bedtime/generated/l10n.dart';
 import 'package:bedtime/injectable_initalizer.dart';
 import 'package:bedtime/services/gpt.service.dart';
@@ -15,6 +17,7 @@ class GeneratorPage extends StatefulWidget {
 
 class _GeneratorPageState extends State<GeneratorPage> {
   late final PageController _controller;
+  late final LineSplitter _splitter;
   final List<String> _ageOptions = ['0-2', '3-5', '6-8', '9-12'];
   final List<String> _genreOptions = [
     'Adventure',
@@ -36,6 +39,7 @@ class _GeneratorPageState extends State<GeneratorPage> {
 
   @override
   void initState() {
+    _splitter = const LineSplitter();
     _controller = PageController();
     super.initState();
   }
@@ -79,7 +83,6 @@ class _GeneratorPageState extends State<GeneratorPage> {
                       .chooseGenre,
                   options: _genreOptions,
                   optionSelected: (genre) async {
-                    List<String> heroes = [];
                     setState(() {
                       _overlayText = S
                           .of(context)
@@ -88,14 +91,9 @@ class _GeneratorPageState extends State<GeneratorPage> {
                     final heroOptionsResponse = await getIt
                         .get<GptService>()
                         .getHeroOptions(_age!, genre);
-                    heroOptionsResponse.choices[0].message!.content
-                        .split(',')
-                        .forEach((element) {
-                      heroes.add(element.trim());
-                    });
+                      _heroOptions.addAll(_splitter.convert(heroOptionsResponse.firstMessage.content));
                     setState(() {
                       _genre = genre;
-                      _heroOptions.addAll(heroes);
                       _overlayText = null;
                       _controller.nextPage(
                           duration: const Duration(milliseconds: 400),
@@ -115,20 +113,13 @@ class _GeneratorPageState extends State<GeneratorPage> {
                           .of(context)
                           .gatheringCompanions;
                     });
-                    List<String> companions = [];
                     final companionOptionsResponse = await getIt
                         .get<GptService>()
                         .getHeroCompanionOptions(_age!, _genre!, hero);
-                    companionOptionsResponse.choices[0].message!.content
-                        .split(',')
-                        .forEach((element) {
-                      _companionOptions.add(element.trim());
-                    });
-                    print(companions);
+                    _companionOptions.addAll(_splitter.convert(companionOptionsResponse.firstMessage.content));
                     setState(() {
                       _overlayText = null;
                       _hero = hero;
-                      _companionOptions.addAll(companions);
                       _controller.nextPage(
                           duration: const Duration(milliseconds: 400),
                           curve: Curves.easeInOut);
@@ -167,7 +158,7 @@ class _GeneratorPageState extends State<GeneratorPage> {
                   .of(context)
                   .size
                   .height,
-              color: Colors.white.withOpacity(0.8),
+              color: MediaQuery.of(context).platformBrightness == Brightness.light ? Colors.white.withOpacity(0.8) : Colors.black.withOpacity(0.8)
             ),
             Center(
               child: Padding(
@@ -185,9 +176,7 @@ class _GeneratorPageState extends State<GeneratorPage> {
                       duration: const Duration(milliseconds: 400),
                     ),
                     Text(
-                      S
-                          .of(context)
-                          .gatheringCompanions,
+                      _overlayText??"",
                       style: Theme
                           .of(context)
                           .textTheme

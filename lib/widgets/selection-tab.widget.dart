@@ -15,40 +15,47 @@ class SelectionTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(24.0),
-      child: Center(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(bottom: 24.0),
-              child: Text(title,
-                softWrap: true,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineMedium,
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(bottom: 24.0),
+                child: Text(title,
+                  softWrap: true,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
               ),
-            ),
-            Wrap(
-              alignment: WrapAlignment.center,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              spacing: 8,
-              runSpacing: 8,
-              children: [
-                for (var option in options) ...[
-                  InkWell(
-                    onTap: () => optionSelected(option),
-                    child: Chip(
-                      label: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Text(option,
-                            style: Theme.of(context).textTheme.bodyLarge),
+              Wrap(
+                alignment: WrapAlignment.start,
+                crossAxisAlignment: WrapCrossAlignment.start,
+                spacing: 16,
+                runSpacing: 16,
+                children: [
+                  for (var option in options) ...[
+                    InkWell(
+                      onTap: () => optionSelected(option),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Theme.of(context).highlightColor,
+                                width: 1), borderRadius: BorderRadius.circular(8),),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 18),
+                          child: Text(option,
+                              style: Theme.of(context).textTheme.bodyLarge, softWrap: true),
+                        ),
                       ),
-                    ),
-                  )
-                ]
-              ],
-            )
-          ],
+                    )
+                  ]
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

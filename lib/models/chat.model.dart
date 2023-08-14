@@ -1,11 +1,17 @@
 import 'dart:convert';
 
+import 'package:bedtime/models/message.model.dart';
+
+
 class Chat {
   String model;
   bool? stream;
   List<Message> messages;
 
   Chat({required this.model, required this.messages, this.stream});
+
+  // could be sent as array, but most of the times we need only first message
+  get firstMessage => messages.first;
 
   factory Chat.fromPrompt(String prompt, {bool stream = false}) => Chat(
         model: "gpt-3.5-turbo",
@@ -35,22 +41,3 @@ class Chat {
       };
 }
 
-class Message {
-  String role;
-  String content;
-
-  Message({
-    required this.role,
-    required this.content,
-  });
-
-  factory Message.fromJson(Map<String, dynamic> json) => Message(
-        role: json['role'],
-        content: json['content'],
-      );
-
-  Map<String, dynamic> toJson() => {
-        'role': role,
-        'content': content,
-      };
-}

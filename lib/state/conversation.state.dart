@@ -1,5 +1,6 @@
-import 'package:bedtime/models/chat_completion.model.dart';
 import 'package:injectable/injectable.dart';
+
+import 'package:bedtime/models/message.model.dart';
 
 @singleton
 class ConversationState {

@@ -19,7 +19,7 @@ class GptService {
 
   Future<ChatCompletion> getHeroOptions(String age, String genre) async {
     final response = await http.sendPrompt(
-        "Answer as simple as possible. Create some heroes for bedtime story of genre $genre for child in age range $age. Separate names with commas. Do not add comment");
+        "Answer as simple as possible. Create some heroes for bedtime story of genre $genre for child in age range $age. Answer in format 'name - few words of description'. Do not add comment");
 
     return response;
   }
@@ -27,7 +27,7 @@ class GptService {
   Future<ChatCompletion> getHeroCompanionOptions(
       String age, String genre, String hero) async {
     final response = await http.sendPrompt(
-        "Create some companions for hero $hero of bedtime story of genre $genre for child in age range $age. Separate names with commas. Do not add comment");
+        "Answer as simple as possible. Create some companions for hero $hero of bedtime story of genre $genre for child in age range $age. Answer in format 'name - few words of description', separate with commas, not as list. Do not add comment");
 
     return response;
   }
