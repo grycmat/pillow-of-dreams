@@ -50,20 +50,20 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Say goodbye to ordinary bedtime stories. With us, you and your child can co-create unique and captivating stories together. Every night becomes an opportunity for imagination to soar. 🌙✨`
+  /// `Dive into a realm where bedtime tales are no longer just stories, but worlds crafted by you and your child. Every evening is a new chapter in a magical adventure. 🌌📖`
   String get welcomeMessage {
     return Intl.message(
-      'Say goodbye to ordinary bedtime stories. With us, you and your child can co-create unique and captivating stories together. Every night becomes an opportunity for imagination to soar. 🌙✨',
+      'Dive into a realm where bedtime tales are no longer just stories, but worlds crafted by you and your child. Every evening is a new chapter in a magical adventure. 🌌📖',
       name: 'welcomeMessage',
       desc: '',
       args: [],
     );
   }
 
-  /// `Let's get started!`
+  /// `Embark on our magical journey!`
   String get letsGetStarted {
     return Intl.message(
-      'Let\'s get started!',
+      'Embark on our magical journey!',
       name: 'letsGetStarted',
       desc: '',
       args: [],
@@ -90,50 +90,50 @@ class S {
     );
   }
 
-  /// `Add companions to your hero's journey – choose friends for an unforgettable adventure!`
+  /// `Who will accompany your hero? Select allies for a tale that's truly one-of-a-kind!`
   String get addCompanions {
     return Intl.message(
-      'Add companions to your hero\'s journey – choose friends for an unforgettable adventure!',
+      'Who will accompany your hero? Select allies for a tale that\'s truly one-of-a-kind!',
       name: 'addCompanions',
       desc: '',
       args: [],
     );
   }
 
-  /// `Discover the hero of your dreams – pick the main character for your adventure!`
+  /// `Who will lead your tale tonight? Choose a hero and let their adventure unfold!`
   String get discoverHero {
     return Intl.message(
-      'Discover the hero of your dreams – pick the main character for your adventure!',
+      'Who will lead your tale tonight? Choose a hero and let their adventure unfold!',
       name: 'discoverHero',
       desc: '',
       args: [],
     );
   }
 
-  /// `Embark on a storytelling journey – choose a genre to set the stage!`
+  /// `Set the backdrop of your epic tale – which world will you explore tonight?`
   String get chooseGenre {
     return Intl.message(
-      'Embark on a storytelling journey – choose a genre to set the stage!',
+      'Set the backdrop of your epic tale – which world will you explore tonight?',
       name: 'chooseGenre',
       desc: '',
       args: [],
     );
   }
 
-  /// `Summoning a cast of captivating heroes for you... Please wait a moment!`
+  /// `Conjuring a gallery of legendary heroes for your selection... A moment of magic is underway!`
   String get summoningHero {
     return Intl.message(
-      'Summoning a cast of captivating heroes for you... Please wait a moment!',
+      'Conjuring a gallery of legendary heroes for your selection... A moment of magic is underway!',
       name: 'summoningHero',
       desc: '',
       args: [],
     );
   }
 
-  /// `Help us tailor enchanting stories by selecting your child's age`
+  /// `To weave the perfect tale, tell us the age of your young dreamer.`
   String get selectAge {
     return Intl.message(
-      'Help us tailor enchanting stories by selecting your child\'s age',
+      'To weave the perfect tale, tell us the age of your young dreamer.',
       name: 'selectAge',
       desc: '',
       args: [],
@@ -147,6 +147,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'pl'),
     ];
   }
 

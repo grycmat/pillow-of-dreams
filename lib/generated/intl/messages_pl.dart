@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a en locale. All the
+// This is a library that provides messages for a pl locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,27 +18,27 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'en';
+  String get localeName => 'pl';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addCompanions": MessageLookupByLibrary.simpleMessage(
-            "Who will accompany your hero? Select allies for a tale that\'s truly one-of-a-kind!"),
+            "Dobierz towarzyszy dla Twojego bohatera – wybierz przyjaciół na przygodę, o której nie zapomnisz!"),
         "chooseGenre": MessageLookupByLibrary.simpleMessage(
-            "Set the backdrop of your epic tale – which world will you explore tonight?"),
+            "Wyrusz na ekscytującą podróż przez świat opowieści – wybierz gatunek, który stanie się scenerią Twojej niezapomnianej przygody!"),
         "discoverHero": MessageLookupByLibrary.simpleMessage(
-            "Who will lead your tale tonight? Choose a hero and let their adventure unfold!"),
+            "Odkryj bohatera, który mieszka w Twoich snach – wybierz główną postać swojej opowieści!"),
         "gatheringCompanions": MessageLookupByLibrary.simpleMessage(
-            "Gathering a group of wonderful companions for your hero... Just a moment!"),
+            "Zbieram zastęp niezwykłych towarzyszy dla Twojego bohatera... Chwila cierpliwości!"),
         "letsGetStarted": MessageLookupByLibrary.simpleMessage(
-            "Embark on our magical journey!"),
+            "Zaczynamy niezwykłą przygodę!"),
         "selectAge": MessageLookupByLibrary.simpleMessage(
-            "To weave the perfect tale, tell us the age of your young dreamer."),
+            "Pomóż nam utkać opowieści, które oczarują Twoje dziecko – podaj jego wiek, a my dostosujemy magię!"),
         "summoningHero": MessageLookupByLibrary.simpleMessage(
-            "Conjuring a gallery of legendary heroes for your selection... A moment of magic is underway!"),
+            "Przywołuję dla Ciebie porywających bohaterów... Proszę o chwilę cierpliwości!"),
         "welcomeMessage": MessageLookupByLibrary.simpleMessage(
-            "Dive into a realm where bedtime tales are no longer just stories, but worlds crafted by you and your child. Every evening is a new chapter in a magical adventure. 🌌📖"),
-        "welcomeTitle":
-            MessageLookupByLibrary.simpleMessage("Welcome to DreamWorld Tales!")
+            "Żegnajcie nudne opowieści na dobranoc! Odkryj razem z nami świat, w którym Ty i Twoje dziecko stworzycie razem niepowtarzalne i magiczne historie. Każda noc staje się bramą do krainy wyobraźni. 🌙✨"),
+        "welcomeTitle": MessageLookupByLibrary.simpleMessage(
+            "Witaj w Krainie Snów i Opowieści!")
       };
 }
