@@ -6,6 +6,7 @@ import 'package:bedtime/services/gpt.service.dart';
 import 'package:flutter/material.dart';
 import 'package:bedtime/widgets/selection-tab.widget.dart';
 import 'package:bedtime/widgets/generate-story-tab.widget.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class GeneratorPage extends StatefulWidget {
@@ -19,17 +20,8 @@ class _GeneratorPageState extends State<GeneratorPage> {
   late final PageController _controller;
   late final LineSplitter _splitter;
   final List<String> _ageOptions = ['0-2', '3-5', '6-8', '9-12'];
-  final List<String> _genreOptions = [
-    'Adventure',
-    'Fantasy',
-    'Fairy Tale',
-    'Sci-Fi',
-    'Superhero',
-    'Mystery'
-  ];
-
+  final List<String> _genreOptions = [];
   final List<String> _heroOptions = [];
-
   final List<String> _companionOptions = [];
   String? _age;
   String? _genre;
@@ -42,6 +34,18 @@ class _GeneratorPageState extends State<GeneratorPage> {
     _splitter = const LineSplitter();
     _controller = PageController();
     super.initState();
+    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+      setState(() {
+        _genreOptions.addAll([
+          S.of(context).adventure,
+          S.of(context).fantasy,
+          S.of(context).sciFi,
+          S.of(context).fairyTale,
+          S.of(context).superhero,
+          S.of(context).mystery]);
+      });
+    });
+
   }
 
   @override

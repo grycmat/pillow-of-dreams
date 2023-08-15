@@ -24,18 +24,24 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addCompanions": MessageLookupByLibrary.simpleMessage(
             "Who will accompany your hero? Select allies for a tale that\'s truly one-of-a-kind!"),
+        "adventure": MessageLookupByLibrary.simpleMessage("Adventure"),
         "chooseGenre": MessageLookupByLibrary.simpleMessage(
             "Set the backdrop of your epic tale – which world will you explore tonight?"),
         "discoverHero": MessageLookupByLibrary.simpleMessage(
             "Who will lead your tale tonight? Choose a hero and let their adventure unfold!"),
+        "fairyTale": MessageLookupByLibrary.simpleMessage("Fairy Tale"),
+        "fantasy": MessageLookupByLibrary.simpleMessage("Fantasy"),
         "gatheringCompanions": MessageLookupByLibrary.simpleMessage(
             "Gathering a group of wonderful companions for your hero... Just a moment!"),
         "letsGetStarted": MessageLookupByLibrary.simpleMessage(
             "Embark on our magical journey!"),
+        "mystery": MessageLookupByLibrary.simpleMessage("Mystery"),
+        "sciFi": MessageLookupByLibrary.simpleMessage("Sci-Fi"),
         "selectAge": MessageLookupByLibrary.simpleMessage(
             "To weave the perfect tale, tell us the age of your young dreamer."),
         "summoningHero": MessageLookupByLibrary.simpleMessage(
             "Conjuring a gallery of legendary heroes for your selection... A moment of magic is underway!"),
+        "superhero": MessageLookupByLibrary.simpleMessage("Superhero"),
         "welcomeMessage": MessageLookupByLibrary.simpleMessage(
             "Dive into a realm where bedtime tales are no longer just stories, but worlds crafted by you and your child. Every evening is a new chapter in a magical adventure. 🌌📖"),
         "welcomeTitle":

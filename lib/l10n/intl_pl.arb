@@ -7,5 +7,11 @@
   "discoverHero": "Odkryj bohatera, który mieszka w Twoich snach – wybierz główną postać swojej opowieści!",
   "chooseGenre": "Wyrusz na ekscytującą podróż przez świat opowieści – wybierz gatunek, który stanie się scenerią Twojej niezapomnianej przygody!",
   "summoningHero": "Przywołuję dla Ciebie porywających bohaterów... Proszę o chwilę cierpliwości!",
-  "selectAge": "Pomóż nam utkać opowieści, które oczarują Twoje dziecko – podaj jego wiek, a my dostosujemy magię!"
+  "selectAge": "Pomóż nam utkać opowieści, które oczarują Twoje dziecko – podaj jego wiek, a my dostosujemy magię!",
+  "adventure":  "Przygoda",
+  "fantasy":  "Fantasy",
+  "fairyTale":  "Baśń",
+  "sciFi":  "Sci-Fi",
+  "superhero": "Superbohater",
+  "mystery": "Tajemnica"
 }

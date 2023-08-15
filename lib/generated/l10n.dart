@@ -139,6 +139,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Adventure`
+  String get adventure {
+    return Intl.message(
+      'Adventure',
+      name: 'adventure',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fantasy`
+  String get fantasy {
+    return Intl.message(
+      'Fantasy',
+      name: 'fantasy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fairy Tale`
+  String get fairyTale {
+    return Intl.message(
+      'Fairy Tale',
+      name: 'fairyTale',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sci-Fi`
+  String get sciFi {
+    return Intl.message(
+      'Sci-Fi',
+      name: 'sciFi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Superhero`
+  String get superhero {
+    return Intl.message(
+      'Superhero',
+      name: 'superhero',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mystery`
+  String get mystery {
+    return Intl.message(
+      'Mystery',
+      name: 'mystery',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

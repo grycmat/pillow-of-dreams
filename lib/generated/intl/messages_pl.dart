@@ -24,18 +24,24 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addCompanions": MessageLookupByLibrary.simpleMessage(
             "Dobierz towarzyszy dla Twojego bohatera – wybierz przyjaciół na przygodę, o której nie zapomnisz!"),
+        "adventure": MessageLookupByLibrary.simpleMessage("Przygoda"),
         "chooseGenre": MessageLookupByLibrary.simpleMessage(
             "Wyrusz na ekscytującą podróż przez świat opowieści – wybierz gatunek, który stanie się scenerią Twojej niezapomnianej przygody!"),
         "discoverHero": MessageLookupByLibrary.simpleMessage(
             "Odkryj bohatera, który mieszka w Twoich snach – wybierz główną postać swojej opowieści!"),
+        "fairyTale": MessageLookupByLibrary.simpleMessage("Baśń"),
+        "fantasy": MessageLookupByLibrary.simpleMessage("Fantasy"),
         "gatheringCompanions": MessageLookupByLibrary.simpleMessage(
             "Zbieram zastęp niezwykłych towarzyszy dla Twojego bohatera... Chwila cierpliwości!"),
         "letsGetStarted": MessageLookupByLibrary.simpleMessage(
             "Zaczynamy niezwykłą przygodę!"),
+        "mystery": MessageLookupByLibrary.simpleMessage("Tajemnica"),
+        "sciFi": MessageLookupByLibrary.simpleMessage("Sci-Fi"),
         "selectAge": MessageLookupByLibrary.simpleMessage(
             "Pomóż nam utkać opowieści, które oczarują Twoje dziecko – podaj jego wiek, a my dostosujemy magię!"),
         "summoningHero": MessageLookupByLibrary.simpleMessage(
             "Przywołuję dla Ciebie porywających bohaterów... Proszę o chwilę cierpliwości!"),
+        "superhero": MessageLookupByLibrary.simpleMessage("Superbohater"),
         "welcomeMessage": MessageLookupByLibrary.simpleMessage(
             "Żegnajcie nudne opowieści na dobranoc! Odkryj razem z nami świat, w którym Ty i Twoje dziecko stworzycie razem niepowtarzalne i magiczne historie. Każda noc staje się bramą do krainy wyobraźni. 🌙✨"),
         "welcomeTitle": MessageLookupByLibrary.simpleMessage(

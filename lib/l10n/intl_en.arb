@@ -7,5 +7,11 @@
   "discoverHero": "Who will lead your tale tonight? Choose a hero and let their adventure unfold!",
   "chooseGenre": "Set the backdrop of your epic tale – which world will you explore tonight?",
   "summoningHero": "Conjuring a gallery of legendary heroes for your selection... A moment of magic is underway!",
-  "selectAge": "To weave the perfect tale, tell us the age of your young dreamer."
+  "selectAge": "To weave the perfect tale, tell us the age of your young dreamer.",
+  "adventure":  "Adventure",
+  "fantasy":  "Fantasy",
+  "fairyTale":  "Fairy Tale",
+  "sciFi":  "Sci-Fi",
+  "superhero": "Superhero",
+  "mystery": "Mystery"
 }
