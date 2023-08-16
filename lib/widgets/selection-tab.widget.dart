@@ -24,7 +24,8 @@ class SelectionTab extends StatelessWidget {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.only(bottom: 24.0),
-                child: Text(title,
+                child: Text(
+                  title,
                   softWrap: true,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headlineMedium,
@@ -41,13 +42,22 @@ class SelectionTab extends StatelessWidget {
                       onTap: () => optionSelected(option),
                       child: Container(
                         decoration: BoxDecoration(
+                            color: Colors.black,
                             border: Border.all(
                                 color: Theme.of(context).highlightColor,
-                                width: 1), borderRadius: BorderRadius.circular(8),),
+                                width: 1),
+                            borderRadius: BorderRadius.circular(8),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  blurRadius: 4),
+                            ]),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 18),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 12.0, horizontal: 18),
                           child: Text(option,
-                              style: Theme.of(context).textTheme.bodyLarge, softWrap: true),
+                              style: Theme.of(context).textTheme.bodyLarge,
+                              softWrap: true),
                         ),
                       ),
                     )

@@ -175,7 +175,7 @@ class _GeneratorPageState extends State<GeneratorPage> {
                     SpinKitPumpingHeart(
                       color: Theme
                           .of(context)
-                          .highlightColor,
+                          .primaryColor,
                       size: 100.0,
                       duration: const Duration(milliseconds: 400),
                     ),
