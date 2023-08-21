@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class SelectionTab extends StatelessWidget {
   const SelectionTab(
       {Key? key,
-      required this.type,
       required this.title,
       required this.options,
       required this.optionSelected})
@@ -11,7 +10,6 @@ class SelectionTab extends StatelessWidget {
   final Function optionSelected;
   final List<String> options;
   final String title;
-  final dynamic type;
 
   @override
   Widget build(BuildContext context) {

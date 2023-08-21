@@ -1,3 +1,5 @@
+import 'package:bedtime/main.dart';
+import 'package:bedtime/models/state/story.state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -37,7 +39,13 @@ class WelcomePage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: CupertinoButton(
                 onPressed: () {
-                  context.go('/generator');
+                  isar!.storyStates.count().then((count) {
+                    if (count > 0) {
+                      context.go('/dashboard');
+                    } else {
+                      context.go('/generator');
+                    }
+                  });
                 },
                 child: Text(S.of(context).letsGetStarted),
               ),

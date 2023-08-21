@@ -1,10 +1,11 @@
 import 'dart:convert';
-import 'package:bedtime/state/conversation.state.dart';
-import 'package:http/http.dart' as http;
+
 import 'package:bedtime/models/chat.model.dart';
 import 'package:bedtime/models/chat_completion.model.dart';
+import 'package:bedtime/state/conversation.state.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:http/http.dart' as http;
 import 'package:injectable/injectable.dart';
 
 @singleton
@@ -35,13 +36,10 @@ class HttpService {
     return chatCompletion;
   }
 
-  Future<http.StreamedResponse> sendPromptForStream(
-      {String? age, String? hero, String? genre, String? companion}) async {
+  Future<http.StreamedResponse> sendPromptForStream(String prompt) async {
     var url = Uri.parse(dotenv.env['BASE_URL']!);
 
-    final chat = _createChatMessage(
-        "Write me a $genre bedtime story for child of age $age with hero $hero and they companion $companion",
-        stream: true);
+    final chat = _createChatMessage(prompt, stream: true);
     final data = jsonEncode(chat);
     var request = http.Request('POST', url);
     request.body = data;

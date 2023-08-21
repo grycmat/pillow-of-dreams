@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:bedtime/generated/l10n.dart';
 import 'package:bedtime/injectable_initalizer.dart';
 import 'package:bedtime/services/gpt.service.dart';
-import 'package:flutter/material.dart';
-import 'package:bedtime/widgets/selection-tab.widget.dart';
 import 'package:bedtime/widgets/generate-story-tab.widget.dart';
+import 'package:bedtime/widgets/selection-tab.widget.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -19,6 +19,7 @@ class GeneratorPage extends StatefulWidget {
 class _GeneratorPageState extends State<GeneratorPage> {
   late final PageController _controller;
   late final LineSplitter _splitter;
+  late final Locale _locale;
   final List<String> _ageOptions = ['0-2', '3-5', '6-8', '9-12'];
   final List<String> _genreOptions = [];
   final List<String> _heroOptions = [];
@@ -35,6 +36,7 @@ class _GeneratorPageState extends State<GeneratorPage> {
     _controller = PageController();
     super.initState();
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+      _locale = Localizations.localeOf(context);
       setState(() {
         _genreOptions.addAll([
           S.of(context).adventure,
@@ -42,10 +44,10 @@ class _GeneratorPageState extends State<GeneratorPage> {
           S.of(context).sciFi,
           S.of(context).fairyTale,
           S.of(context).superhero,
-          S.of(context).mystery]);
+          S.of(context).mystery
+        ]);
       });
     });
-
   }
 
   @override
@@ -64,11 +66,7 @@ class _GeneratorPageState extends State<GeneratorPage> {
             controller: _controller,
             children: <Widget>[
               SelectionTab(
-                type: Age,
-                title:
-                S
-                    .of(context)
-                    .selectAge,
+                title: S.of(context).selectAge,
                 options: _ageOptions,
                 optionSelected: (age) {
                   setState(() {
@@ -80,22 +78,18 @@ class _GeneratorPageState extends State<GeneratorPage> {
                 },
               ),
               SelectionTab(
-                  type: Genre,
-                  title:
-                  S
-                      .of(context)
-                      .chooseGenre,
+                  title: S.of(context).chooseGenre,
                   options: _genreOptions,
                   optionSelected: (genre) async {
                     setState(() {
-                      _overlayText = S
-                          .of(context)
-                          .summoningHero;
+                      _overlayText = S.of(context).summoningHero;
                     });
                     final heroOptionsResponse = await getIt
                         .get<GptService>()
-                        .getHeroOptions(_age!, genre);
-                      _heroOptions.addAll(_splitter.convert(heroOptionsResponse.firstMessage.content));
+                        .getHeroOptions(
+                            age: _age!, genre: genre, locale: _locale);
+                    _heroOptions.addAll(_splitter
+                        .convert(heroOptionsResponse.firstMessage.content));
                     setState(() {
                       _genre = genre;
                       _overlayText = null;
@@ -105,22 +99,21 @@ class _GeneratorPageState extends State<GeneratorPage> {
                     });
                   }),
               SelectionTab(
-                  type: Genre,
-                  title:
-                  S
-                      .of(context)
-                      .discoverHero,
+                  title: S.of(context).discoverHero,
                   options: _heroOptions,
                   optionSelected: (hero) async {
                     setState(() {
-                      _overlayText = S
-                          .of(context)
-                          .gatheringCompanions;
+                      _overlayText = S.of(context).gatheringCompanions;
                     });
                     final companionOptionsResponse = await getIt
                         .get<GptService>()
-                        .getHeroCompanionOptions(_age!, _genre!, hero);
-                    _companionOptions.addAll(_splitter.convert(companionOptionsResponse.firstMessage.content));
+                        .getHeroCompanionOptions(
+                            age: _age!,
+                            genre: _genre!,
+                            hero: hero,
+                            locale: _locale);
+                    _companionOptions.addAll(_splitter.convert(
+                        companionOptionsResponse.firstMessage.content));
                     setState(() {
                       _overlayText = null;
                       _hero = hero;
@@ -130,12 +123,8 @@ class _GeneratorPageState extends State<GeneratorPage> {
                     });
                   }),
               SelectionTab(
-                  type: Companion,
                   options: _companionOptions,
-                  title:
-                  S
-                      .of(context)
-                      .addCompanions,
+                  title: S.of(context).addCompanions,
                   optionSelected: (companion) {
                     setState(() {
                       _companion = companion;
@@ -145,6 +134,7 @@ class _GeneratorPageState extends State<GeneratorPage> {
                     });
                   }),
               GenerateStoryTab(
+                locale: _locale,
                 age: _age,
                 hero: _hero,
                 genre: _genre,
@@ -154,16 +144,12 @@ class _GeneratorPageState extends State<GeneratorPage> {
           ),
           if (_overlayText != null) ...[
             Container(
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height,
-              color: MediaQuery.of(context).platformBrightness == Brightness.light ? Colors.white.withOpacity(0.8) : Colors.black.withOpacity(0.8)
-            ),
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                color: MediaQuery.of(context).platformBrightness ==
+                        Brightness.light
+                    ? Colors.white.withOpacity(0.8)
+                    : Colors.black.withOpacity(0.8)),
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
@@ -173,18 +159,13 @@ class _GeneratorPageState extends State<GeneratorPage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SpinKitPumpingHeart(
-                      color: Theme
-                          .of(context)
-                          .primaryColor,
+                      color: Theme.of(context).primaryColor,
                       size: 100.0,
                       duration: const Duration(milliseconds: 400),
                     ),
                     Text(
-                      _overlayText??"",
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .headlineSmall,
+                      _overlayText ?? "",
+                      style: Theme.of(context).textTheme.headlineSmall,
                       textAlign: TextAlign.center,
                     ),
                   ],
