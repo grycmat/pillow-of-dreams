@@ -6,6 +6,8 @@ import 'package:bedtime/models/state/story.state.dart';
 import 'package:bedtime/services/gpt.service.dart';
 import 'package:flutter/material.dart';
 
+import '../generated/l10n.dart';
+
 class GenerateStoryTab extends StatefulWidget {
   const GenerateStoryTab(
       {Key? key,
@@ -60,7 +62,7 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {
         onDone: () {
           ScaffoldMessenger.of(context).showMaterialBanner(
             MaterialBanner(
-              content: Text('Story generated!'),
+              content: Text(S.of(context).do_you_want_to_save),
               actions: [
                 IconButton(
                   onPressed: _save,

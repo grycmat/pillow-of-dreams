@@ -13,5 +13,6 @@
   "fairyTale":  "Baśń",
   "sciFi":  "Sci-Fi",
   "superhero": "Superbohater",
-  "mystery": "Tajemnica"
+  "mystery": "Tajemnica",
+  "do_you_want_to_save": "Czy chcesz dodać tę historię do twojej Księgi baśni?"
 }

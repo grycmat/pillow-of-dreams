@@ -199,6 +199,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Do you want to add this story to your Fairy Tale Book?`
+  String get do_you_want_to_save {
+    return Intl.message(
+      'Do you want to add this story to your Fairy Tale Book?',
+      name: 'do_you_want_to_save',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

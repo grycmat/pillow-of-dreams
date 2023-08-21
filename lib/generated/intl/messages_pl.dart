@@ -29,6 +29,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Wyrusz na ekscytującą podróż przez świat opowieści – wybierz gatunek, który stanie się scenerią Twojej niezapomnianej przygody!"),
         "discoverHero": MessageLookupByLibrary.simpleMessage(
             "Odkryj bohatera, który mieszka w Twoich snach – wybierz główną postać swojej opowieści!"),
+        "do_you_want_to_save": MessageLookupByLibrary.simpleMessage(
+            "Czy chcesz dodać tę historię do twojej Księgi baśni?"),
         "fairyTale": MessageLookupByLibrary.simpleMessage("Baśń"),
         "fantasy": MessageLookupByLibrary.simpleMessage("Fantasy"),
         "gatheringCompanions": MessageLookupByLibrary.simpleMessage(
