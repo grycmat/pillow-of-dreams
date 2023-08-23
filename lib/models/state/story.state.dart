@@ -5,5 +5,6 @@ part 'story.state.g.dart';
 @collection
 class StoryState {
   Id id = Isar.autoIncrement;
+  String? name;
   String? content;
 }

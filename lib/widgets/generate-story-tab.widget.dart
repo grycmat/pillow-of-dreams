@@ -5,6 +5,8 @@ import 'package:bedtime/main.dart';
 import 'package:bedtime/models/state/story.state.dart';
 import 'package:bedtime/services/gpt.service.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:isar/isar.dart';
 
 import '../generated/l10n.dart';
 
@@ -28,11 +30,13 @@ class GenerateStoryTab extends StatefulWidget {
 }
 
 class _GenerateStoryTabState extends State<GenerateStoryTab> {
+  late TextEditingController _storyNameController;
   String _text = '';
   late LineSplitter _splitter;
 
   @override
   void initState() {
+    _storyNameController = TextEditingController();
     _splitter = const LineSplitter();
     getIt
         .get<GptService>()
@@ -65,8 +69,54 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {
               content: Text(S.of(context).do_you_want_to_save),
               actions: [
                 IconButton(
-                  onPressed: _save,
-                  icon: Icon(Icons.save_alt),
+                  onPressed: () => showDialog(
+                    context: context,
+                    builder: (_) => Dialog(
+                      child: Padding(
+                        padding: EdgeInsets.all(24),
+                        child: Column(
+                          children: [
+                            TextField(
+                              controller: _storyNameController,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                label: Text('Name Story'),
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                TextButton(
+                                  onPressed: () {
+                                    // ScaffoldMessenger.of(context)
+                                    //     .clearMaterialBanners();
+                                    context.pop();
+                                  },
+                                  child: const Text('Cancel'),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    ScaffoldMessenger.of(context)
+                                        .clearMaterialBanners();
+                                    _save().then((_) {
+                                      context.pop();
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        const SnackBar(
+                                          content: Text('Story Saved!'),
+                                        ),
+                                      );
+                                    });
+                                  },
+                                  child: const Text('Save'),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  icon: const Icon(Icons.save_alt),
                 ),
               ],
             ),
@@ -91,10 +141,13 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {
     );
   }
 
-  void _save() {
-    var story = StoryState()..content = _text;
-    isar!.storyStates
-        .put(story)
-        .then((value) => ScaffoldMessenger.of(context).clearMaterialBanners());
+  Future<Id> _save() async {
+    final story = StoryState()
+      ..content = _text
+      ..name = _storyNameController.text;
+
+    print(story);
+
+    return isar!.storyStates.put(story);
   }
 }

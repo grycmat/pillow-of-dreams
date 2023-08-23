@@ -23,12 +23,18 @@ class HttpService {
     final chat = _createChatMessage(prompt);
     conversationState.addMessage(chat.firstMessage);
     final data = jsonEncode(chat);
-    final response = await dio.post(dotenv.env['BASE_URL']!,
-        data: data,
-        options: Options(headers: {
+    final response = await dio.post(
+      dotenv.env['BASE_URL']!,
+      data: data,
+      options: Options(
+        headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer ${dotenv.env['API_KEY']}"
-        }));
+        },
+        sendTimeout: Duration(seconds: 10),
+        receiveTimeout: Duration(seconds: 10),
+      ),
+    );
     print(response.data);
     final chatCompletion = ChatCompletion.fromJson(response.data);
     conversationState.addMessage(chatCompletion.firstMessage);
