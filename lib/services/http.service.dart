@@ -31,10 +31,9 @@ class HttpService {
           "Content-Type": "application/json",
           "Authorization": "Bearer ${dotenv.env['API_KEY']}"
         },
-        sendTimeout: Duration(seconds: 10),
-        receiveTimeout: Duration(seconds: 10),
       ),
     );
+
     print(response.data);
     final chatCompletion = ChatCompletion.fromJson(response.data);
     conversationState.addMessage(chatCompletion.firstMessage);
