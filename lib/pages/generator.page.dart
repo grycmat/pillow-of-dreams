@@ -178,9 +178,3 @@ class _GeneratorPageState extends State<GeneratorPage> {
     );
   }
 }
-
-enum Age { zeroToTwo, threeToFive, sixToEight, nineToTwelve }
-
-enum Genre { adventure, fantasy, scifi, fairytale, superhero, mystery, funny }
-
-enum Companion { none, loyalFriend, group, animal }

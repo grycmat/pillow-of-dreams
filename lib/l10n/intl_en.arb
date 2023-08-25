@@ -14,5 +14,6 @@
   "sciFi":  "Sci-Fi",
   "superhero": "Superhero",
   "mystery": "Mystery",
-  "do_you_want_to_save": "Do you want to add this story to your Fairy Tale Book?"
+  "doYouWantToSave": "Do you want to add this story to your Fairy Tale Book?",
+  "createFirstStory": "Create your first story!"
 }

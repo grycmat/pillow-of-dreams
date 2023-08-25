@@ -201,10 +201,20 @@ class S {
   }
 
   /// `Do you want to add this story to your Fairy Tale Book?`
-  String get do_you_want_to_save {
+  String get doYouWantToSave {
     return Intl.message(
       'Do you want to add this story to your Fairy Tale Book?',
-      name: 'do_you_want_to_save',
+      name: 'doYouWantToSave',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create your first story!`
+  String get createFirstStory {
+    return Intl.message(
+      'Create your first story!',
+      name: 'createFirstStory',
       desc: '',
       args: [],
     );

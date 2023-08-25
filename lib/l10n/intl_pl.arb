@@ -14,5 +14,6 @@
   "sciFi":  "Sci-Fi",
   "superhero": "Superbohater",
   "mystery": "Tajemnica",
-  "do_you_want_to_save": "Czy chcesz dodać tę historię do twojej Księgi baśni?"
+  "doYouWantToSave": "Czy chcesz dodać tę historię do twojej Księgi baśni?",
+  "createFirstStory": "Stwórz swoją pierwszą historię!"
 }

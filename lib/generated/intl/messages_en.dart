@@ -27,9 +27,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "adventure": MessageLookupByLibrary.simpleMessage("Adventure"),
         "chooseGenre": MessageLookupByLibrary.simpleMessage(
             "Set the backdrop of your epic tale – which world will you explore tonight?"),
+        "createFirstStory":
+            MessageLookupByLibrary.simpleMessage("Create your first story!"),
         "discoverHero": MessageLookupByLibrary.simpleMessage(
             "Who will lead your tale tonight? Choose a hero and let their adventure unfold!"),
-        "do_you_want_to_save": MessageLookupByLibrary.simpleMessage(
+        "doYouWantToSave": MessageLookupByLibrary.simpleMessage(
             "Do you want to add this story to your Fairy Tale Book?"),
         "fairyTale": MessageLookupByLibrary.simpleMessage("Fairy Tale"),
         "fantasy": MessageLookupByLibrary.simpleMessage("Fantasy"),
