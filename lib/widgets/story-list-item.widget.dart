@@ -1,5 +1,6 @@
 import 'package:bedtime/models/state/story.state.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class StoryListItem extends StatelessWidget {
   const StoryListItem({
@@ -18,7 +19,9 @@ class StoryListItem extends StatelessWidget {
       child: InkWell(
         splashColor: primaryColor,
         borderRadius: borderRadius,
-        onTap: (){},
+        onTap: () {
+          context.go('/read/${story.id}');
+        },
         child: Container(
           decoration: BoxDecoration(
               borderRadius: borderRadius,
@@ -30,8 +33,11 @@ class StoryListItem extends StatelessWidget {
                     blurStyle: BlurStyle.outer),
               ]),
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12),
-            child: Text(story.name!),
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+            child: Text(
+              story.name!,
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
           ),
         ),
       ),

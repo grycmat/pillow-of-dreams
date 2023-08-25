@@ -94,7 +94,7 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {
                         controller: _storyNameController,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
-                          label: Text('Name Story'),
+                          label: Text('Name the Story'),
                         ),
                       ),
                       Row(
@@ -105,7 +105,7 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {
                               //     .clearMaterialBanners();
                               context.pop();
                             },
-                            child: const Text('Cancel'),
+                            child: Text(S.of(context).cancel),
                           ),
                           TextButton(
                             onPressed: () {
@@ -114,13 +114,13 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {
                               _save().then((_) {
                                 context.pop();
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text('Story Saved!'),
+                                  SnackBar(
+                                    content: Text(S.of(context).storySaved),
                                   ),
                                 );
                               });
                             },
-                            child: const Text('Save'),
+                            child: Text(S.of(context).save),
                           )
                         ],
                       )

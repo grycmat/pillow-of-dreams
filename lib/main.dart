@@ -3,6 +3,7 @@ import 'package:bedtime/injectable_initalizer.dart';
 import 'package:bedtime/models/state/story.state.dart';
 import 'package:bedtime/pages/dashboard.page.dart';
 import 'package:bedtime/pages/generator.page.dart';
+import 'package:bedtime/pages/read_story.page.dart';
 import 'package:bedtime/pages/welcome.page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -26,7 +27,12 @@ final GoRouter router = GoRouter(
         GoRoute(
           path: 'dashboard',
           builder: (context, state) => const DashboardPage(),
-        )
+        ),
+        GoRoute(
+          path: 'read/:id',
+          builder: (context, state) =>
+              ReadStoryPage(id: state.pathParameters['id']!),
+        ),
       ],
     ),
   ],

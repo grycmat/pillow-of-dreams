@@ -15,5 +15,9 @@
   "superhero": "Superhero",
   "mystery": "Mystery",
   "doYouWantToSave": "Do you want to add this story to your Fairy Tale Book?",
-  "createFirstStory": "Create your first story!"
+  "createFirstStory": "Create your first story!",
+  "storySaved": "Story Saved!",
+  "save": "Save",
+  "cancel": "Cancel",
+  "nameTheStory": "Name the Story"
 }

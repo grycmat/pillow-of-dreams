@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addCompanions": MessageLookupByLibrary.simpleMessage(
             "Dobierz towarzyszy dla Twojego bohatera – wybierz przyjaciół na przygodę, o której nie zapomnisz!"),
         "adventure": MessageLookupByLibrary.simpleMessage("Przygoda"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Anuluj"),
         "chooseGenre": MessageLookupByLibrary.simpleMessage(
             "Wyrusz na ekscytującą podróż przez świat opowieści – wybierz gatunek, który stanie się scenerią Twojej niezapomnianej przygody!"),
         "createFirstStory": MessageLookupByLibrary.simpleMessage(
@@ -40,9 +41,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "letsGetStarted": MessageLookupByLibrary.simpleMessage(
             "Zaczynamy niezwykłą przygodę!"),
         "mystery": MessageLookupByLibrary.simpleMessage("Tajemnica"),
+        "nameTheStory":
+            MessageLookupByLibrary.simpleMessage("Nazwij swoją historię"),
+        "save": MessageLookupByLibrary.simpleMessage("Zapisz"),
         "sciFi": MessageLookupByLibrary.simpleMessage("Sci-Fi"),
         "selectAge": MessageLookupByLibrary.simpleMessage(
             "Pomóż nam utkać opowieści, które oczarują Twoje dziecko – podaj jego wiek, a my dostosujemy magię!"),
+        "storySaved":
+            MessageLookupByLibrary.simpleMessage("Twoja historia zapisana!"),
         "summoningHero": MessageLookupByLibrary.simpleMessage(
             "Przywołuję dla Ciebie porywających bohaterów... Proszę o chwilę cierpliwości!"),
         "superhero": MessageLookupByLibrary.simpleMessage("Superbohater"),

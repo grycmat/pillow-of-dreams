@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addCompanions": MessageLookupByLibrary.simpleMessage(
             "Who will accompany your hero? Select allies for a tale that\'s truly one-of-a-kind!"),
         "adventure": MessageLookupByLibrary.simpleMessage("Adventure"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "chooseGenre": MessageLookupByLibrary.simpleMessage(
             "Set the backdrop of your epic tale – which world will you explore tonight?"),
         "createFirstStory":
@@ -40,9 +41,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "letsGetStarted": MessageLookupByLibrary.simpleMessage(
             "Embark on our magical journey!"),
         "mystery": MessageLookupByLibrary.simpleMessage("Mystery"),
+        "nameTheStory": MessageLookupByLibrary.simpleMessage("Name the Story"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
         "sciFi": MessageLookupByLibrary.simpleMessage("Sci-Fi"),
         "selectAge": MessageLookupByLibrary.simpleMessage(
             "To weave the perfect tale, tell us the age of your young dreamer."),
+        "storySaved": MessageLookupByLibrary.simpleMessage("Story Saved!"),
         "summoningHero": MessageLookupByLibrary.simpleMessage(
             "Conjuring a gallery of legendary heroes for your selection... A moment of magic is underway!"),
         "superhero": MessageLookupByLibrary.simpleMessage("Superhero"),

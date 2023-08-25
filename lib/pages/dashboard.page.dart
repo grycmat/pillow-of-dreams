@@ -11,20 +11,14 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var primaryColor = Theme.of(context).colorScheme.primary;
+
     return Scaffold(
-      appBar: AppBar(foregroundColor: Colors.amber),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.amber,
-        onPressed: () {
-          context.go('/generator');
-        },
-        child: const Icon(Icons.add),
-      ),
       body: Center(
         child: FutureBuilder(
           future: isar!.storyStates.where().findAll(),
           builder: (_, AsyncSnapshot<List<StoryState>> snapshot) {
-            if (true) {
+            if (snapshot.hasData && snapshot.data!.isEmpty) {
               return Center(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,15 +26,50 @@ class DashboardPage extends StatelessWidget {
                   children: [
                     const Padding(
                       padding: EdgeInsets.only(bottom: 8.0),
-                      child: Icon(Icons.menu_book_outlined, size: 36,),
+                      child: Icon(
+                        Icons.menu_book_outlined,
+                        size: 36,
+                      ),
                     ),
-                    Text(S.of(context).createFirstStory, style: Theme.of(context).textTheme.headlineMedium,),
+                    Text(
+                      S.of(context).createFirstStory,
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
                   ],
                 ),
               );
             }
             return ListView(
               children: [
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                            color: primaryColor,
+                            blurRadius: 2,
+                            blurStyle: BlurStyle.outer),
+                      ],
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(16),
+                      ),
+                      border: Border.all(color: primaryColor),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.add,
+                          color: primaryColor,
+                        ),
+                        onPressed: () {
+                          context.go('/generator');
+                        },
+                      ),
+                    ),
+                  ),
+                ),
                 for (var story in snapshot.data ?? []) ...[
                   StoryListItem(story: story)
                 ]

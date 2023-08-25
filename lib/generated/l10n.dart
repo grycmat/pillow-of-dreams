@@ -219,6 +219,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Story Saved!`
+  String get storySaved {
+    return Intl.message(
+      'Story Saved!',
+      name: 'storySaved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message(
+      'Save',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name the Story`
+  String get nameTheStory {
+    return Intl.message(
+      'Name the Story',
+      name: 'nameTheStory',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -15,5 +15,9 @@
   "superhero": "Superbohater",
   "mystery": "Tajemnica",
   "doYouWantToSave": "Czy chcesz dodać tę historię do twojej Księgi baśni?",
-  "createFirstStory": "Stwórz swoją pierwszą historię!"
+  "createFirstStory": "Stwórz swoją pierwszą historię!",
+  "storySaved": "Twoja historia zapisana!",
+  "save": "Zapisz",
+  "cancel": "Anuluj",
+  "nameTheStory": "Nazwij swoją historię"
 }
