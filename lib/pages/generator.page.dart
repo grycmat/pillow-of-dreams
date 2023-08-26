@@ -8,6 +8,7 @@ import 'package:bedtime/widgets/selection-tab.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
 
 class GeneratorPage extends StatefulWidget {
   const GeneratorPage({Key? key}) : super(key: key);
@@ -59,6 +60,14 @@ class _GeneratorPageState extends State<GeneratorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            context.go('/dashboard');
+          },
+          icon: const Icon(Icons.cancel),
+        ),
+      ),
       body: SafeArea(
         bottom: false,
         child: Stack(

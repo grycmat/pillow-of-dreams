@@ -54,6 +54,7 @@ class BedtimeStories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       routerConfig: router,
       localizationsDelegates: const [
         S.delegate,

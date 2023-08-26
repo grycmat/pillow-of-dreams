@@ -1,6 +1,7 @@
 import 'package:bedtime/generated/l10n.dart';
 import 'package:bedtime/main.dart';
 import 'package:bedtime/models/state/story.state.dart';
+import 'package:bedtime/widgets/add-new-story-btn.widget.dart';
 import 'package:bedtime/widgets/story-list-item.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -11,71 +12,47 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var primaryColor = Theme.of(context).colorScheme.primary;
-
     return Scaffold(
-      body: Center(
-        child: FutureBuilder(
-          future: isar!.storyStates.where().findAll(),
-          builder: (_, AsyncSnapshot<List<StoryState>> snapshot) {
-            if (snapshot.hasData && snapshot.data!.isEmpty) {
-              return Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 8.0),
-                      child: Icon(
-                        Icons.menu_book_outlined,
-                        size: 36,
-                      ),
-                    ),
-                    Text(
-                      S.of(context).createFirstStory,
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
-                  ],
-                ),
-              );
-            }
-            return ListView(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                            color: primaryColor,
-                            blurRadius: 2,
-                            blurStyle: BlurStyle.outer),
-                      ],
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(16),
-                      ),
-                      border: Border.all(color: primaryColor),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.add,
-                          color: primaryColor,
+      body: SafeArea(
+        bottom: false,
+        top: true,
+        child: Center(
+          child: FutureBuilder(
+            future: isar!.storyStates.where().findAll(),
+            builder: (_, AsyncSnapshot<List<StoryState>> snapshot) {
+              if (snapshot.hasData && snapshot.data!.isEmpty) {
+                return Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: IconButton(
+                          onPressed: () {
+                            context.go('/generator');
+                          },
+                          icon: const Icon(Icons.add_circle_outline, size: 46),
                         ),
-                        onPressed: () {
-                          context.go('/generator');
-                        },
                       ),
-                    ),
+                      Text(
+                        S.of(context).createFirstStory,
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                    ],
                   ),
-                ),
-                for (var story in snapshot.data ?? []) ...[
-                  StoryListItem(story: story)
-                ]
-              ],
-            );
-          },
+                );
+              }
+              return ListView(
+                children: [
+                  const AddNewStoryBtn(),
+                  for (var story in snapshot.data ?? []) ...[
+                    StoryListItem(story: story)
+                  ]
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
