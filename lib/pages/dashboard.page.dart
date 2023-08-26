@@ -4,6 +4,7 @@ import 'package:bedtime/models/state/story.state.dart';
 import 'package:bedtime/widgets/add-new-story-btn.widget.dart';
 import 'package:bedtime/widgets/story-list-item.widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
 import 'package:isar/isar.dart';
 
@@ -13,7 +14,11 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(S.of(context).myFairyTaleBook), centerTitle: true, leading: Container(),),
+      appBar: AppBar(
+        title: Text(S.of(context).myFairyTaleBook),
+        centerTitle: true,
+        leading: Container(),
+      ),
       body: SafeArea(
         bottom: false,
         top: true,
@@ -50,7 +55,7 @@ class DashboardPage extends StatelessWidget {
                   for (var story in snapshot.data ?? []) ...[
                     StoryListItem(story: story)
                   ]
-                ],
+                ].animate(interval: 100.ms).fadeIn().slide(),
               );
             },
           ),

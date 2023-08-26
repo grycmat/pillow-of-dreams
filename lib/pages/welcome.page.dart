@@ -2,6 +2,7 @@ import 'package:bedtime/main.dart';
 import 'package:bedtime/models/state/story.state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:bedtime/generated/l10n.dart';
@@ -50,7 +51,7 @@ class WelcomePage extends StatelessWidget {
                 child: Text(S.of(context).letsGetStarted),
               ),
             )
-          ],
+          ].animate(interval: 400.ms).fadeIn().slide(),
         ),
       ),
     );
