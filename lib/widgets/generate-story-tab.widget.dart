@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:bedtime/injectable_initalizer.dart';
@@ -34,6 +35,7 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {
   late TextEditingController _storyNameController;
   String _text = '';
   late LineSplitter _splitter;
+  StreamSubscription<String>? listener;
 
   @override
   void initState() {
@@ -49,7 +51,7 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {
               companion: widget.companion,
               hero: widget.hero)
           .then((streamedResponse) {
-        streamedResponse.stream.transform(utf8.decoder).listen(
+        listener = streamedResponse.stream.transform(utf8.decoder).listen(
           (event) {
             // sometimes two data responses can be streamed in one chunk
             List<String> splittedText = _splitter.convert(event);
@@ -75,6 +77,13 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {
     super.initState();
   }
 
+  @override
+  dispose() {
+    listener?.cancel();
+
+    super.dispose();
+  }
+
   ScaffoldFeatureController<MaterialBanner, MaterialBannerClosedReason>
       _showSaveBanner(BuildContext context) {
 
@@ -87,7 +96,7 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {
               context: context,
               builder: (_) => Dialog(
                 child: Padding(
-                  padding: EdgeInsets.all(24),
+                  padding: const EdgeInsets.all(24),
                   child: Column(
                     children: [
                       TextField(

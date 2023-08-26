@@ -259,6 +259,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Pillow Of Dreams`
+  String get pillowOfDreams {
+    return Intl.message(
+      'Pillow Of Dreams',
+      name: 'pillowOfDreams',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

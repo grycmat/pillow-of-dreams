@@ -42,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Embark on our magical journey!"),
         "mystery": MessageLookupByLibrary.simpleMessage("Mystery"),
         "nameTheStory": MessageLookupByLibrary.simpleMessage("Name the Story"),
+        "pillowOfDreams":
+            MessageLookupByLibrary.simpleMessage("Pillow Of Dreams"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "sciFi": MessageLookupByLibrary.simpleMessage("Sci-Fi"),
         "selectAge": MessageLookupByLibrary.simpleMessage(

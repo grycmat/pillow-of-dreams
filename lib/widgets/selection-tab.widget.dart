@@ -13,6 +13,8 @@ class SelectionTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var colorScheme = Theme.of(context).colorScheme;
+    var textTheme = Theme.of(context).textTheme;
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -26,7 +28,7 @@ class SelectionTab extends StatelessWidget {
                   title,
                   softWrap: true,
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headlineMedium,
+                  style: textTheme.headlineMedium,
                 ),
               ),
               Wrap(
@@ -40,21 +42,21 @@ class SelectionTab extends StatelessWidget {
                       onTap: () => optionSelected(option),
                       child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.black,
+                            color: colorScheme.background,
                             border: Border.all(
-                                color: Theme.of(context).highlightColor,
+                                color: colorScheme.primary,
                                 width: 1),
                             borderRadius: BorderRadius.circular(8),
                             boxShadow: [
                               BoxShadow(
-                                  color: Theme.of(context).colorScheme.primary,
+                                  color: colorScheme.primary,
                                   blurRadius: 4),
                             ]),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                               vertical: 12.0, horizontal: 18),
                           child: Text(option,
-                              style: Theme.of(context).textTheme.bodyLarge,
+                              style: textTheme.bodyLarge,
                               softWrap: true),
                         ),
                       ),

@@ -63,10 +63,9 @@ class BedtimeStories extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate
       ],
       supportedLocales: S.delegate.supportedLocales,
-      title: 'Bedtime Stories',
       darkTheme: AppTheme.darkTheme(),
       theme: AppTheme.lightTheme(),
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
     );
   }
 }

@@ -59,13 +59,15 @@ class _GeneratorPageState extends State<GeneratorPage> {
 
   @override
   Widget build(BuildContext context) {
+    var textTheme = Theme.of(context).textTheme;
+    var colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
             context.go('/dashboard');
           },
-          icon: const Icon(Icons.cancel),
+          icon: Icon(Icons.cancel_outlined, color: colorScheme.primary,),
         ),
       ),
       body: SafeArea(
@@ -170,13 +172,13 @@ class _GeneratorPageState extends State<GeneratorPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       SpinKitPumpingHeart(
-                        color: Theme.of(context).primaryColor,
+                        color: colorScheme.primary,
                         size: 100.0,
                         duration: const Duration(milliseconds: 400),
                       ),
                       Text(
                         _overlayText ?? "",
-                        style: Theme.of(context).textTheme.headlineSmall,
+                        style: textTheme.headlineSmall,
                         textAlign: TextAlign.center,
                       ),
                     ],
