@@ -1,6 +1,7 @@
 import 'package:bedtime/main.dart';
 import 'package:bedtime/models/state/story.state.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:isar/isar.dart';
 
 class ReadStoryPage extends StatelessWidget {
@@ -14,13 +15,24 @@ class ReadStoryPage extends StatelessWidget {
       top: true,
       bottom: false,
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: () {
+              context.go('/dashboard');
+            },
+            icon: Icon(Icons.arrow_back,
+                color: Theme.of(context).colorScheme.primary),
+          ),
+        ),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(24.0),
             child: FutureBuilder(
-              future:
-                  isar!.storyStates.filter().idEqualTo(int.parse(id)).findFirst(),
+              future: isar!.storyStates
+                  .filter()
+                  .idEqualTo(int.parse(id))
+                  .findFirst(),
               builder: (_, AsyncSnapshot<StoryState?> snapshot) => Text(
                   snapshot.data?.content ?? '',
                   style: Theme.of(context).textTheme.bodyLarge,

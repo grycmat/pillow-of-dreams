@@ -67,7 +67,10 @@ class _GeneratorPageState extends State<GeneratorPage> {
           onPressed: () {
             context.go('/dashboard');
           },
-          icon: Icon(Icons.cancel_outlined, color: colorScheme.primary,),
+          icon: Icon(
+            Icons.cancel_outlined,
+            color: colorScheme.primary,
+          ),
         ),
       ),
       body: SafeArea(

@@ -40,6 +40,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Zbieram zastęp niezwykłych towarzyszy dla Twojego bohatera... Chwila cierpliwości!"),
         "letsGetStarted": MessageLookupByLibrary.simpleMessage(
             "Zaczynamy niezwykłą przygodę!"),
+        "myFairyTaleBook":
+            MessageLookupByLibrary.simpleMessage("Moja Księga Baśni"),
         "mystery": MessageLookupByLibrary.simpleMessage("Tajemnica"),
         "nameTheStory":
             MessageLookupByLibrary.simpleMessage("Nazwij swoją historię"),

@@ -101,9 +101,9 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {
                     children: [
                       TextField(
                         controller: _storyNameController,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          label: Text('Name the Story'),
+                        decoration: InputDecoration(
+                          border: const OutlineInputBorder(),
+                          label: Text(S.of(context).nameTheStory),
                         ),
                       ),
                       Row(

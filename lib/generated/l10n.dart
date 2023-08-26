@@ -269,6 +269,16 @@ class S {
       args: [],
     );
   }
+
+  /// `My Fairy Tale Book`
+  String get myFairyTaleBook {
+    return Intl.message(
+      'My Fairy Tale Book',
+      name: 'myFairyTaleBook',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

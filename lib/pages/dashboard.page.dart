@@ -13,6 +13,7 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text(S.of(context).myFairyTaleBook), centerTitle: true, leading: Container(),),
       body: SafeArea(
         bottom: false,
         top: true,
