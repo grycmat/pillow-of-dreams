@@ -50,6 +50,16 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `DreamWorld Tales`
+  String get appName {
+    return Intl.message(
+      'DreamWorld Tales',
+      name: 'appName',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Dive into a realm where bedtime tales are no longer just stories, but worlds crafted by you and your child. Every evening is a new chapter in a magical adventure. 🌌📖`
   String get welcomeMessage {
     return Intl.message(

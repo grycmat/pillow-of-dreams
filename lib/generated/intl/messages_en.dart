@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addCompanions": MessageLookupByLibrary.simpleMessage(
             "Who will accompany your hero? Select allies for a tale that\'s truly one-of-a-kind!"),
         "adventure": MessageLookupByLibrary.simpleMessage("Adventure"),
+        "appName": MessageLookupByLibrary.simpleMessage("DreamWorld Tales"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "chooseGenre": MessageLookupByLibrary.simpleMessage(
             "Set the backdrop of your epic tale – which world will you explore tonight?"),

@@ -100,6 +100,7 @@ class _GeneratorPageState extends State<GeneratorPage> {
                       setState(() {
                         _overlayText = S.of(context).summoningHero;
                       });
+
                       final heroOptionsResponse = await getIt
                           .get<GptService>()
                           .getHeroOptions(

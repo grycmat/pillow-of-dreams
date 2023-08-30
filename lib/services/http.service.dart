@@ -34,7 +34,6 @@ class HttpService {
       ),
     );
 
-    print(response.data);
     final chatCompletion = ChatCompletion.fromJson(response.data);
     conversationState.addMessage(chatCompletion.firstMessage);
 
@@ -50,6 +49,7 @@ class HttpService {
     request.body = data;
     request.headers["Content-Type"] = "application/json";
     request.headers["Authorization"] = "Bearer ${dotenv.env['API_KEY']}";
+
 
     return request.send();
   }

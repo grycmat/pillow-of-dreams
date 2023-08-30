@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addCompanions": MessageLookupByLibrary.simpleMessage(
             "Dobierz towarzyszy dla Twojego bohatera – wybierz przyjaciół na przygodę, o której nie zapomnisz!"),
         "adventure": MessageLookupByLibrary.simpleMessage("Przygoda"),
+        "appName": MessageLookupByLibrary.simpleMessage("Opowieści Marzeń"),
         "cancel": MessageLookupByLibrary.simpleMessage("Anuluj"),
         "chooseGenre": MessageLookupByLibrary.simpleMessage(
             "Wyrusz na ekscytującą podróż przez świat opowieści – wybierz gatunek, który stanie się scenerią Twojej niezapomnianej przygody!"),
@@ -59,6 +60,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcomeMessage": MessageLookupByLibrary.simpleMessage(
             "Żegnajcie nudne opowieści na dobranoc! Odkryj razem z nami świat, w którym Ty i Twoje dziecko stworzycie razem niepowtarzalne i magiczne historie. Każda noc staje się bramą do krainy wyobraźni. 🌙✨"),
         "welcomeTitle": MessageLookupByLibrary.simpleMessage(
-            "Witaj w Krainie Snów i Opowieści!")
+            "Witaj w Krainie Opowieści Marzeń!")
       };
 }
