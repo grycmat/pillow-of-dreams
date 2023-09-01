@@ -5,9 +5,9 @@ import 'package:bedtime/injectable_initalizer.dart';
 import 'package:bedtime/main.dart';
 import 'package:bedtime/models/state/story.state.dart';
 import 'package:bedtime/services/gpt.service.dart';
+import 'package:bedtime/widgets/save-story-dialog.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:go_router/go_router.dart';
 import 'package:isar/isar.dart';
 
 import '../generated/l10n.dart';
@@ -31,15 +31,12 @@ class GenerateStoryTab extends StatefulWidget {
   State<GenerateStoryTab> createState() => _GenerateStoryTabState();
 }
 
-class _GenerateStoryTabState extends State<GenerateStoryTab> {
-  late TextEditingController _storyNameController;
-  String _text = '';
+class _GenerateStoryTabState extends State<GenerateStoryTab> {String _text = '';
   late LineSplitter _splitter;
   StreamSubscription<String>? listener;
 
   @override
   void initState() {
-    _storyNameController = TextEditingController();
     _splitter = const LineSplitter();
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       getIt
@@ -94,49 +91,7 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {
           IconButton(
             onPressed: () => showDialog(
               context: context,
-              builder: (_) => Dialog(
-                child: Padding(
-                  padding: const EdgeInsets.all(24),
-                  child: Column(
-                    children: [
-                      TextField(
-                        controller: _storyNameController,
-                        decoration: InputDecoration(
-                          border: const OutlineInputBorder(),
-                          label: Text(S.of(context).nameTheStory),
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          TextButton(
-                            onPressed: () {
-                              // ScaffoldMessenger.of(context)
-                              //     .clearMaterialBanners();
-                              context.pop();
-                            },
-                            child: Text(S.of(context).cancel),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              ScaffoldMessenger.of(context)
-                                  .clearMaterialBanners();
-                              _save().then((_) {
-                                context.pop();
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(S.of(context).storySaved),
-                                  ),
-                                );
-                              });
-                            },
-                            child: Text(S.of(context).save),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              ),
+              builder: (_) => SaveStoryDialog(save: _save),
             ),
             icon: const Icon(Icons.save_alt),
           ),
@@ -147,10 +102,10 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {
 
   _getDelta(dynamic json) => json['choices'][0]['delta']['content'];
 
-  Future<Id> _save() async {
+  Future<Id> _save(String title) async {
     final story = StoryState()
       ..content = _text
-      ..name = _storyNameController.text;
+      ..name = title;
 
     return isar!.writeTxn(() => isar!.storyStates.put(story));
   }

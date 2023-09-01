@@ -289,6 +289,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Please name your story!`
+  String get pleaseNameYourStory {
+    return Intl.message(
+      'Please name your story!',
+      name: 'pleaseNameYourStory',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

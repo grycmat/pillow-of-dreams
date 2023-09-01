@@ -28,11 +28,6 @@ final GoRouter router = GoRouter(
           path: 'dashboard',
           builder: (context, state) => const DashboardPage(),
         ),
-        // GoRoute(
-        //   path: 'read/:id',
-        //   builder: (context, state) =>
-        //       ReadStoryPage(id: state.pathParameters['id']!),
-        // ),
       ],
     ),
   ],
