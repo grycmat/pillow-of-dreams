@@ -51,7 +51,10 @@ class WelcomePage extends StatelessWidget {
                 child: Text(S.of(context).letsGetStarted),
               ),
             )
-          ].animate(interval: 400.ms).fadeIn().slide(),
+          ]
+              .animate(interval: 200.ms)
+              .fadeIn(curve: Curves.bounceIn)
+              .slide(curve: Curves.bounceIn),
         ),
       ),
     );
