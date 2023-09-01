@@ -5,9 +5,10 @@ import 'package:go_router/go_router.dart';
 import 'package:isar/isar.dart';
 
 class ReadStoryPage extends StatelessWidget {
-  const ReadStoryPage({required this.id, super.key});
+  const ReadStoryPage({required this.id, required this.closeContainer, super.key});
 
   final String id;
+  final Function closeContainer;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,8 @@ class ReadStoryPage extends StatelessWidget {
           centerTitle: true,
           leading: IconButton(
             onPressed: () {
-              context.go('/dashboard');
+              // context.go('/dashboard');
+              closeContainer();
             },
             icon: Icon(Icons.arrow_back,
                 color: Theme.of(context).colorScheme.primary),
