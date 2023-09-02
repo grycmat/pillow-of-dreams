@@ -30,8 +30,8 @@ class GptService {
       required String age,
       required String genre}) async {
     final prompt = locale.toString() == 'pl'
-        ? "Odpowiedz jak najprościej. Stwórz bohaterów do bajki na dobranoc z gatunku $genre dla dziecka w wieku $age. Odpowiadaj w formacie 'imię - kilka słów opisu'. Nie dodawaj komentarza."
-        : "Answer as simple as possible. Create some heroes for bedtime story of genre $genre for child in age range $age. Answer in format 'name - few words of description'. Do not add comment";
+        ? "Odpowiedz jak najprościej. Stwórz bohaterów do bajki na dobranoc z gatunku $genre dla dziecka w wieku $age. Odpowiadaj w formacie json, gdzie klucze to 'name, description', a klucz główny to 'heroes'."
+        : "Answer as simple as possible. Create some heroes for bedtime story of genre $genre for child in age range $age. Answer in json format with keys 'name, description' and root key is 'heroes.";
     final response = await http.sendPrompt(prompt);
 
     return response;
@@ -43,8 +43,8 @@ class GptService {
       required String genre,
       required String hero}) async {
     final prompt = locale.toString() == 'pl'
-        ? "Odpowiedz jak najprościej. Stwórz towarzyszy dla bohatera $hero z bajki na dobranoc z gatunku $genre dla dziecka w wieku $age. Odpowiadaj w formacie 'imię - kilka słów opisu'. Nie dodawaj komentarza."
-        : "Answer as simple as possible. Create some companions for hero $hero of bedtime story of genre $genre for child in age range $age. Answer in format 'name - few words of description'. Do not add comment";
+        ? "Odpowiedz jak najprościej. Stwórz towarzyszy dla bohatera $hero z bajki na dobranoc z gatunku $genre dla dziecka w wieku $age. Odpowiedz w formacie json gdzie klucze to 'name, description', a klucz główny to 'companions'."
+        : "Answer as simple as possible. Create some companions for hero $hero of bedtime story of genre $genre for child in age range $age. Answer in json format with keys 'name, description', and root key is 'companions'. Do not add comment";
     final response = await http.sendPrompt(prompt);
 
     return response;

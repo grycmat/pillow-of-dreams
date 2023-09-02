@@ -105,8 +105,10 @@ class _GeneratorPageState extends State<GeneratorPage> {
                           .get<GptService>()
                           .getHeroOptions(
                               age: _age!, genre: genre, locale: _locale);
-                      _heroOptions.addAll(_splitter
-                          .convert(heroOptionsResponse.firstMessage.content));
+                      var responseJson = jsonDecode(heroOptionsResponse.firstMessage.content);
+                      for (var item in responseJson['heroes']) {
+                        _heroOptions.add('${item['name']} - ${item['description']}');
+                      }
                       setState(() {
                         _genre = genre;
                         _overlayText = null;
@@ -129,8 +131,10 @@ class _GeneratorPageState extends State<GeneratorPage> {
                               genre: _genre!,
                               hero: hero,
                               locale: _locale);
-                      _companionOptions.addAll(_splitter.convert(
-                          companionOptionsResponse.firstMessage.content));
+                      final responseJson = jsonDecode(companionOptionsResponse.firstMessage.content);
+                      for (var item in responseJson['companions']) {
+                        _companionOptions.add('${item['name']} - ${item['description']}');
+                      }
                       setState(() {
                         _overlayText = null;
                         _hero = hero;
