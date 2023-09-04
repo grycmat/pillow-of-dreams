@@ -19,7 +19,6 @@ class GeneratorPage extends StatefulWidget {
 
 class _GeneratorPageState extends State<GeneratorPage> {
   late final PageController _controller;
-  late final LineSplitter _splitter;
   late final Locale _locale;
   final List<String> _ageOptions = ['0-2', '3-5', '6-8', '9-12'];
   final List<String> _genreOptions = [];
@@ -33,7 +32,6 @@ class _GeneratorPageState extends State<GeneratorPage> {
 
   @override
   void initState() {
-    _splitter = const LineSplitter();
     _controller = PageController();
     super.initState();
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
@@ -105,9 +103,11 @@ class _GeneratorPageState extends State<GeneratorPage> {
                           .get<GptService>()
                           .getHeroOptions(
                               age: _age!, genre: genre, locale: _locale);
-                      var responseJson = jsonDecode(heroOptionsResponse.firstMessage.content);
+                      var responseJson =
+                          jsonDecode(heroOptionsResponse.firstMessage.content);
                       for (var item in responseJson['heroes']) {
-                        _heroOptions.add('${item['name']} - ${item['description']}');
+                        _heroOptions
+                            .add('${item['name']} - ${item['description']}');
                       }
                       setState(() {
                         _genre = genre;
@@ -131,9 +131,11 @@ class _GeneratorPageState extends State<GeneratorPage> {
                               genre: _genre!,
                               hero: hero,
                               locale: _locale);
-                      final responseJson = jsonDecode(companionOptionsResponse.firstMessage.content);
+                      final responseJson = jsonDecode(
+                          companionOptionsResponse.firstMessage.content);
                       for (var item in responseJson['companions']) {
-                        _companionOptions.add('${item['name']} - ${item['description']}');
+                        _companionOptions
+                            .add('${item['name']} - ${item['description']}');
                       }
                       setState(() {
                         _overlayText = null;
@@ -165,12 +167,13 @@ class _GeneratorPageState extends State<GeneratorPage> {
             ),
             if (_overlayText != null) ...[
               Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
-                  color: MediaQuery.of(context).platformBrightness ==
-                          Brightness.light
-                      ? Colors.white.withOpacity(0.8)
-                      : Colors.black.withOpacity(0.8)),
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                color: MediaQuery.of(context).platformBrightness ==
+                        Brightness.light
+                    ? Colors.white.withOpacity(0.8)
+                    : Colors.black.withOpacity(0.8),
+              ),
               Center(
                 child: Padding(
                   padding: const EdgeInsets.all(24.0),

@@ -1,7 +1,6 @@
 import 'package:bedtime/main.dart';
 import 'package:bedtime/models/state/story.state.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:isar/isar.dart';
 
 class ReadStoryPage extends StatelessWidget {
@@ -20,7 +19,6 @@ class ReadStoryPage extends StatelessWidget {
           centerTitle: true,
           leading: IconButton(
             onPressed: () {
-              // context.go('/dashboard');
               closeContainer();
             },
             icon: Icon(Icons.arrow_back,

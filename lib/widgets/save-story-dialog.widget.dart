@@ -42,8 +42,6 @@ class _SaveStoryDialogState extends State<SaveStoryDialog> {
                 children: [
                   TextButton(
                     onPressed: () {
-                      // ScaffoldMessenger.of(context)
-                      //     .clearMaterialBanners();
                       context.pop();
                     },
                     child: Text(S.of(context).cancel),
