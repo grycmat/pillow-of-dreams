@@ -1,11 +1,14 @@
 import 'package:bedtime/generated/l10n.dart';
+import 'package:bedtime/main.dart';
+import 'package:bedtime/models/state/story.state.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:isar/isar.dart';
 
 class SaveStoryDialog extends StatefulWidget {
-  const SaveStoryDialog({super.key, required this.save});
+  const SaveStoryDialog({super.key, required this.text});
 
-  final Function save;
+  final String text;
 
   @override
   State<SaveStoryDialog> createState() => _SaveStoryDialogState();
@@ -18,6 +21,16 @@ class _SaveStoryDialogState extends State<SaveStoryDialog> {
   void initState() {
     _nameController = TextEditingController();
     super.initState();
+  }
+
+  Future<Id> _save(String text) async {
+    final story = StoryState()
+      ..content = text
+      ..name = _nameController.text;
+
+    return isar!.writeTxn(
+      () => isar!.storyStates.put(story),
+    );
   }
 
   @override
@@ -49,18 +62,23 @@ class _SaveStoryDialogState extends State<SaveStoryDialog> {
                   TextButton(
                     onPressed: () {
                       if (_nameController.text.isEmpty) {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text(S.of(context).pleaseNameYourStory)));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(S.of(context).pleaseNameYourStory),
+                          ),
+                        );
                         return;
                       }
+
                       ScaffoldMessenger.of(context).clearMaterialBanners();
-                      widget.save().then((_) {
-                        context.pop();
+                      _save(widget.text).then((_) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(S.of(context).storySaved),
                           ),
                         );
+
+                        context.pop();
                       });
                     },
                     child: Text(S.of(context).save),

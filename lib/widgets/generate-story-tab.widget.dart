@@ -91,7 +91,7 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {String _text = '';
           IconButton(
             onPressed: () => showDialog(
               context: context,
-              builder: (_) => SaveStoryDialog(save: _save),
+              builder: (_) => SaveStoryDialog(text: _text),
             ),
             icon: const Icon(Icons.save_alt),
           ),
@@ -101,14 +101,6 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {String _text = '';
   }
 
   _getDelta(dynamic json) => json['choices'][0]['delta']['content'];
-
-  Future<Id> _save(String title) async {
-    final story = StoryState()
-      ..content = _text
-      ..name = title;
-
-    return isar!.writeTxn(() => isar!.storyStates.put(story));
-  }
 
   @override
   Widget build(BuildContext context) {
