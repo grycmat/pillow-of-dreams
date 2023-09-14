@@ -299,6 +299,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Privacy Policy`
+  String get privacyPolicy {
+    return Intl.message(
+      'Privacy Policy',
+      name: 'privacyPolicy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong :(`
+  String get somethingWentWrong {
+    return Intl.message(
+      'Something went wrong :(',
+      name: 'somethingWentWrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Could not create heroes :(`
+  String get couldNotCreateHeroes {
+    return Intl.message(
+      'Could not create heroes :(',
+      name: 'couldNotCreateHeroes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Could not create companions :(`
+  String get couldNotCreateCompanions {
+    return Intl.message(
+      'Could not create companions :(',
+      name: 'couldNotCreateCompanions',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

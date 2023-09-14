@@ -9,10 +9,10 @@
   "chooseGenre": "Set the backdrop of your epic tale – which world will you explore tonight?",
   "summoningHero": "Conjuring a gallery of legendary heroes for your selection... A moment of magic is underway!",
   "selectAge": "To weave the perfect tale, tell us the age of your young dreamer.",
-  "adventure":  "Adventure",
-  "fantasy":  "Fantasy",
-  "fairyTale":  "Fairy Tale",
-  "sciFi":  "Sci-Fi",
+  "adventure": "Adventure",
+  "fantasy": "Fantasy",
+  "fairyTale": "Fairy Tale",
+  "sciFi": "Sci-Fi",
   "superhero": "Superhero",
   "mystery": "Mystery",
   "doYouWantToSave": "Do you want to add this story to your Fairy Tale Book?",
@@ -22,6 +22,10 @@
   "cancel": "Cancel",
   "nameTheStory": "Name the Story",
   "pillowOfDreams": "Pillow Of Dreams",
-  "myFairyTaleBook":  "My Fairy Tale Book",
-  "pleaseNameYourStory": "Please name your story!"
+  "myFairyTaleBook": "My Fairy Tale Book",
+  "pleaseNameYourStory": "Please name your story!",
+  "privacyPolicy": "Privacy Policy",
+  "somethingWentWrong": "Something went wrong :(",
+  "couldNotCreateHeroes": "Could not create heroes :(",
+  "couldNotCreateCompanions": "Could not create companions :("
 }

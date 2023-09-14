@@ -99,16 +99,31 @@ class _GeneratorPageState extends State<GeneratorPage> {
                         _overlayText = S.of(context).summoningHero;
                       });
 
-                      final heroOptionsResponse = await getIt
-                          .get<GptService>()
-                          .getHeroOptions(
-                              age: _age!, genre: genre, locale: _locale);
-                      var responseJson =
-                          jsonDecode(heroOptionsResponse.firstMessage.content);
-                      for (var item in responseJson['heroes']) {
-                        _heroOptions
-                            .add('${item['name']} - ${item['description']}');
+                      try {
+                        final heroOptionsResponse = await getIt
+                            .get<GptService>()
+                            .getHeroOptions(
+                                age: _age!, genre: genre, locale: _locale);
+                        var responseJson = jsonDecode(
+                            heroOptionsResponse.firstMessage.content);
+                        for (var item in responseJson['heroes']) {
+                          _heroOptions
+                              .add('${item['name']} - ${item['description']}');
+                        }
+                      } catch (e) {
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(S.of(context).couldNotCreateHeroes),
+                            ),
+                          );
+                        }
+                        setState(() {
+                          _overlayText = null;
+                        });
+                        return;
                       }
+
                       setState(() {
                         _genre = genre;
                         _overlayText = null;
@@ -124,19 +139,36 @@ class _GeneratorPageState extends State<GeneratorPage> {
                       setState(() {
                         _overlayText = S.of(context).gatheringCompanions;
                       });
-                      final companionOptionsResponse = await getIt
-                          .get<GptService>()
-                          .getHeroCompanionOptions(
-                              age: _age!,
-                              genre: _genre!,
-                              hero: hero,
-                              locale: _locale);
-                      final responseJson = jsonDecode(
-                          companionOptionsResponse.firstMessage.content);
-                      for (var item in responseJson['companions']) {
-                        _companionOptions
-                            .add('${item['name']} - ${item['description']}');
+                      try {
+                        final companionOptionsResponse = await getIt
+                            .get<GptService>()
+                            .getHeroCompanionOptions(
+                                age: _age!,
+                                genre: _genre!,
+                                hero: hero,
+                                locale: _locale);
+                        final responseJson = jsonDecode(
+                            companionOptionsResponse.firstMessage.content);
+                        for (var item in responseJson['companions']) {
+                          _companionOptions
+                              .add('${item['name']} - ${item['description']}');
+                        }
+                      } catch (e) {
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content:
+                                  Text(S.of(context).couldNotCreateCompanions),
+                            ),
+                          );
+                        }
+                        setState(() {
+                          _overlayText = null;
+                        });
+
+                        return;
                       }
+
                       setState(() {
                         _overlayText = null;
                         _hero = hero;

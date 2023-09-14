@@ -9,10 +9,10 @@
   "chooseGenre": "Wyrusz na ekscytującą podróż przez świat opowieści – wybierz gatunek, który stanie się scenerią Twojej niezapomnianej przygody!",
   "summoningHero": "Przywołuję dla Ciebie porywających bohaterów... Proszę o chwilę cierpliwości!",
   "selectAge": "Pomóż nam utkać opowieści, które oczarują Twoje dziecko – podaj jego wiek, a my dostosujemy magię!",
-  "adventure":  "Przygoda",
-  "fantasy":  "Fantasy",
-  "fairyTale":  "Baśń",
-  "sciFi":  "Sci-Fi",
+  "adventure": "Przygoda",
+  "fantasy": "Fantasy",
+  "fairyTale": "Baśń",
+  "sciFi": "Sci-Fi",
   "superhero": "Superbohater",
   "mystery": "Tajemnica",
   "doYouWantToSave": "Czy chcesz dodać tę historię do twojej Księgi baśni?",
@@ -22,6 +22,10 @@
   "cancel": "Anuluj",
   "nameTheStory": "Nazwij swoją historię",
   "pillowOfDreams": "Poduszka Marzeń",
-  "myFairyTaleBook":  "Moja Księga Baśni",
-  "pleaseNameYourStory": "Nazwij swoją historię!"
+  "myFairyTaleBook": "Moja Księga Baśni",
+  "pleaseNameYourStory": "Nazwij swoją historię!",
+  "privacyPolicy": "Polityka Prywatności",
+  "somethingWentWrong": "Coś poszło nie tak :(",
+  "couldNotCreateHeroes": "Nie udało się stworzyć bohaterów :(",
+  "couldNotCreateCompanions": "Nie udało się stworzyć towarzyszy :("
 }

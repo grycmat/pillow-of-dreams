@@ -2,13 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:bedtime/injectable_initalizer.dart';
-import 'package:bedtime/main.dart';
-import 'package:bedtime/models/state/story.state.dart';
 import 'package:bedtime/services/gpt.service.dart';
 import 'package:bedtime/widgets/save-story-dialog.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:isar/isar.dart';
 
 import '../generated/l10n.dart';
 
@@ -31,7 +28,8 @@ class GenerateStoryTab extends StatefulWidget {
   State<GenerateStoryTab> createState() => _GenerateStoryTabState();
 }
 
-class _GenerateStoryTabState extends State<GenerateStoryTab> {String _text = '';
+class _GenerateStoryTabState extends State<GenerateStoryTab> {
+  String _text = '';
   late LineSplitter _splitter;
   StreamSubscription<String>? listener;
 
@@ -47,7 +45,13 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {String _text = '';
               genre: widget.genre,
               companion: widget.companion,
               hero: widget.hero)
-          .then((streamedResponse) {
+          .catchError((e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(S.of(context).somethingWentWrong),
+          ),
+        );
+      }).then((streamedResponse) {
         listener = streamedResponse.stream.transform(utf8.decoder).listen(
           (event) {
             // sometimes two data responses can be streamed in one chunk
@@ -83,7 +87,6 @@ class _GenerateStoryTabState extends State<GenerateStoryTab> {String _text = '';
 
   ScaffoldFeatureController<MaterialBanner, MaterialBannerClosedReason>
       _showSaveBanner(BuildContext context) {
-
     return ScaffoldMessenger.of(context).showMaterialBanner(
       MaterialBanner(
         content: Text(S.of(context).doYouWantToSave),

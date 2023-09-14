@@ -29,6 +29,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "chooseGenre": MessageLookupByLibrary.simpleMessage(
             "Set the backdrop of your epic tale – which world will you explore tonight?"),
+        "couldNotCreateCompanions": MessageLookupByLibrary.simpleMessage(
+            "Could not create companions :("),
+        "couldNotCreateHeroes":
+            MessageLookupByLibrary.simpleMessage("Could not create heroes :("),
         "createFirstStory":
             MessageLookupByLibrary.simpleMessage("Create your first story!"),
         "discoverHero": MessageLookupByLibrary.simpleMessage(
@@ -49,10 +53,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pillow Of Dreams"),
         "pleaseNameYourStory":
             MessageLookupByLibrary.simpleMessage("Please name your story!"),
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "sciFi": MessageLookupByLibrary.simpleMessage("Sci-Fi"),
         "selectAge": MessageLookupByLibrary.simpleMessage(
             "To weave the perfect tale, tell us the age of your young dreamer."),
+        "somethingWentWrong":
+            MessageLookupByLibrary.simpleMessage("Something went wrong :("),
         "storySaved": MessageLookupByLibrary.simpleMessage("Story Saved!"),
         "summoningHero": MessageLookupByLibrary.simpleMessage(
             "Conjuring a gallery of legendary heroes for your selection... A moment of magic is underway!"),

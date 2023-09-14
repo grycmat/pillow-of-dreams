@@ -29,6 +29,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("Anuluj"),
         "chooseGenre": MessageLookupByLibrary.simpleMessage(
             "Wyrusz na ekscytującą podróż przez świat opowieści – wybierz gatunek, który stanie się scenerią Twojej niezapomnianej przygody!"),
+        "couldNotCreateCompanions": MessageLookupByLibrary.simpleMessage(
+            "Nie udało się stworzyć towarzyszy :("),
+        "couldNotCreateHeroes": MessageLookupByLibrary.simpleMessage(
+            "Nie udało się stworzyć bohaterów :("),
         "createFirstStory": MessageLookupByLibrary.simpleMessage(
             "Stwórz swoją pierwszą historię!"),
         "discoverHero": MessageLookupByLibrary.simpleMessage(
@@ -50,10 +54,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Poduszka Marzeń"),
         "pleaseNameYourStory":
             MessageLookupByLibrary.simpleMessage("Nazwij swoją historię!"),
+        "privacyPolicy":
+            MessageLookupByLibrary.simpleMessage("Polityka Prywatności"),
         "save": MessageLookupByLibrary.simpleMessage("Zapisz"),
         "sciFi": MessageLookupByLibrary.simpleMessage("Sci-Fi"),
         "selectAge": MessageLookupByLibrary.simpleMessage(
             "Pomóż nam utkać opowieści, które oczarują Twoje dziecko – podaj jego wiek, a my dostosujemy magię!"),
+        "somethingWentWrong":
+            MessageLookupByLibrary.simpleMessage("Coś poszło nie tak :("),
         "storySaved":
             MessageLookupByLibrary.simpleMessage("Twoja historia zapisana!"),
         "summoningHero": MessageLookupByLibrary.simpleMessage(
