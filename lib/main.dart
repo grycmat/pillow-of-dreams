@@ -3,7 +3,6 @@ import 'package:bedtime/injectable_initalizer.dart';
 import 'package:bedtime/models/state/story.state.dart';
 import 'package:bedtime/pages/dashboard.page.dart';
 import 'package:bedtime/pages/generator.page.dart';
-import 'package:bedtime/pages/read_story.page.dart';
 import 'package:bedtime/pages/welcome.page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -60,7 +59,6 @@ class BedtimeStories extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       darkTheme: AppTheme.darkTheme(),
       theme: AppTheme.lightTheme(),
-      themeMode: ThemeMode.light,
     );
   }
 }

@@ -201,10 +201,7 @@ class _GeneratorPageState extends State<GeneratorPage> {
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
-                color: MediaQuery.of(context).platformBrightness ==
-                        Brightness.light
-                    ? Colors.white.withOpacity(0.8)
-                    : Colors.black.withOpacity(0.8),
+                color: colorScheme.background,
               ),
               Center(
                 child: Padding(
