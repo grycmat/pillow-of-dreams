@@ -1,16 +1,34 @@
+import 'package:bedtime/widgets/add-custom-character-btn.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-class SelectionTab extends StatelessWidget {
+class SelectionTab extends StatefulWidget {
   const SelectionTab(
       {Key? key,
+      this.createCustomCharacter = false,
       required this.title,
       required this.options,
       required this.optionSelected})
       : super(key: key);
   final Function optionSelected;
+  final bool createCustomCharacter;
   final List<String> options;
   final String title;
+
+  @override
+  State<SelectionTab> createState() => _SelectionTabState();
+}
+
+class _SelectionTabState extends State<SelectionTab> {
+  late final TextEditingController _nameController;
+  late final TextEditingController _descController;
+
+  @override
+  void initState() {
+    _nameController = TextEditingController();
+    _descController = TextEditingController();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +44,7 @@ class SelectionTab extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(bottom: 24.0),
                 child: Text(
-                  title,
+                  widget.title,
                   softWrap: true,
                   textAlign: TextAlign.center,
                   style: textTheme.headlineMedium,
@@ -38,9 +56,44 @@ class SelectionTab extends StatelessWidget {
                 spacing: 16,
                 runSpacing: 16,
                 children: [
-                  for (var option in options) ...[
+                  if (widget.createCustomCharacter)
                     InkWell(
-                      onTap: () => optionSelected(option),
+                      onTap: () => showDialog(
+                        context: context,
+                        builder: (_) => Dialog(
+                          child: Container(
+                            child: Column(children: [
+                              TextField(
+                                controller: _nameController,
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  label: Text('Name your character'),
+                                ),
+                              ),
+                              TextField(
+                                controller: _descController,
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  label: Text(
+                                      'You can write a few words of description if you want'),
+                                ),
+                              ),
+                              TextButton(
+                                  child: const Text(
+                                      'New character is ready for adventure!'),
+                                  onPressed: () {
+                                    widget.optionSelected(
+                                        '${_nameController.text} - ${_descController.text}');
+                                  })
+                            ]),
+                          ),
+                        ),
+                      ),
+                      child: const AddCustomCharacterBtn(),
+                    ),
+                  for (var option in widget.options) ...[
+                    InkWell(
+                      onTap: () => widget.optionSelected(option),
                       child: Container(
                         decoration: BoxDecoration(
                             color: colorScheme.background,

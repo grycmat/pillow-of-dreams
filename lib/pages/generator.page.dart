@@ -133,6 +133,7 @@ class _GeneratorPageState extends State<GeneratorPage> {
                       });
                     }),
                 SelectionTab(
+                    createCustomCharacter: true,
                     title: S.of(context).discoverHero,
                     options: _heroOptions,
                     optionSelected: (hero) async {
@@ -178,6 +179,7 @@ class _GeneratorPageState extends State<GeneratorPage> {
                       });
                     }),
                 SelectionTab(
+                    createCustomCharacter: true,
                     options: _companionOptions,
                     title: S.of(context).addCompanions,
                     optionSelected: (companion) {
