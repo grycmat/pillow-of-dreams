@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class SelectionTab extends StatelessWidget {
   const SelectionTab(
@@ -44,25 +45,22 @@ class SelectionTab extends StatelessWidget {
                         decoration: BoxDecoration(
                             color: colorScheme.background,
                             border: Border.all(
-                                color: colorScheme.primary,
-                                width: 1),
+                                color: colorScheme.primary, width: 1),
                             borderRadius: BorderRadius.circular(8),
                             boxShadow: [
                               BoxShadow(
-                                  color: colorScheme.primary,
-                                  blurRadius: 4),
+                                  color: colorScheme.primary, blurRadius: 4),
                             ]),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                               vertical: 12.0, horizontal: 18),
                           child: Text(option,
-                              style: textTheme.bodyLarge,
-                              softWrap: true),
+                              style: textTheme.bodyLarge, softWrap: true),
                         ),
                       ),
                     )
                   ]
-                ],
+                ].animate(interval: 200.ms).fadeIn(curve: Curves.easeIn),
               )
             ],
           ),

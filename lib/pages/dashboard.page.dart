@@ -55,7 +55,7 @@ class DashboardPage extends StatelessWidget {
                   for (var story in snapshot.data ?? []) ...[
                     StoryListItem(story: story)
                   ]
-                ].animate(interval: 100.ms).fadeIn(curve: Curves.bounceIn),
+                ].animate(interval: 200.ms).fadeIn(curve: Curves.easeIn),
               );
             },
           ),

@@ -59,7 +59,7 @@ class WelcomePage extends StatelessWidget {
                 },
                 child: Text(S.of(context).privacyPolicy),
               )
-            ].animate(interval: 200.ms).fadeIn(curve: Curves.bounceIn),
+            ].animate(interval: 200.ms).fadeIn(curve: Curves.easeIn),
           ),
         ),
       ),
