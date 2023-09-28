@@ -1,6 +1,8 @@
+import 'package:bedtime/generated/l10n.dart';
 import 'package:bedtime/widgets/add-custom-character-btn.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:go_router/go_router.dart';
 
 class SelectionTab extends StatefulWidget {
   const SelectionTab(
@@ -61,30 +63,55 @@ class _SelectionTabState extends State<SelectionTab> {
                       onTap: () => showDialog(
                         context: context,
                         builder: (_) => Dialog(
-                          child: Container(
+                          child: Padding(
+                            padding: const EdgeInsets.all(24),
                             child: Column(children: [
                               TextField(
                                 controller: _nameController,
-                                decoration: const InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  label: Text('Name your character'),
+                                decoration: InputDecoration(
+                                  border: const OutlineInputBorder(),
+                                  label: Text(S.of(context).writeName),
                                 ),
                               ),
-                              TextField(
-                                controller: _descController,
-                                decoration: const InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  label: Text(
-                                      'You can write a few words of description if you want'),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 24),
+                                child: TextField(
+                                  controller: _descController,
+                                  decoration: InputDecoration(
+                                    border: const OutlineInputBorder(),
+                                    label: Text(S.of(context).writeDescription),
+                                  ),
                                 ),
                               ),
                               TextButton(
-                                  child: const Text(
-                                      'New character is ready for adventure!'),
+                                  child: Text(S.of(context).newCharacterReady),
                                   onPressed: () {
-                                    widget.optionSelected(
-                                        '${_nameController.text} - ${_descController.text}');
-                                  })
+                                    if (_nameController.text.isEmpty) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(S
+                                              .of(context)
+                                              .pleaseNameCharacter),
+                                        ),
+                                      );
+
+                                      return;
+                                    }
+
+                                    String character = _descController
+                                            .text.isEmpty
+                                        ? _nameController.text
+                                        : '${_nameController.text} - ${_descController.text}';
+                                    widget.optionSelected(character);
+
+                                    context.pop();
+                                  }),
+                              TextButton(
+                                onPressed: () => context.pop(),
+                                child: Text(S.of(context).selectSomeoneElse),
+                              )
                             ]),
                           ),
                         ),

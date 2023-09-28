@@ -25,7 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addCompanions": MessageLookupByLibrary.simpleMessage(
             "Dobierz towarzyszy dla Twojego bohatera – wybierz przyjaciół na przygodę, o której nie zapomnisz!"),
         "adventure": MessageLookupByLibrary.simpleMessage("Przygoda"),
-        "appName": MessageLookupByLibrary.simpleMessage("Opowieści Marzeń"),
+        "appName": MessageLookupByLibrary.simpleMessage("Poduszka Marzeń"),
         "cancel": MessageLookupByLibrary.simpleMessage("Anuluj"),
         "chooseGenre": MessageLookupByLibrary.simpleMessage(
             "Wyrusz na ekscytującą podróż przez świat opowieści – wybierz gatunek, który stanie się scenerią Twojej niezapomnianej przygody!"),
@@ -35,6 +35,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Nie udało się stworzyć bohaterów :("),
         "createFirstStory": MessageLookupByLibrary.simpleMessage(
             "Stwórz swoją pierwszą historię!"),
+        "createYourOwn":
+            MessageLookupByLibrary.simpleMessage("Stwórz nową postać!"),
         "discoverHero": MessageLookupByLibrary.simpleMessage(
             "Odkryj bohatera, który mieszka w Twoich snach – wybierz główną postać swojej opowieści!"),
         "doYouWantToSave": MessageLookupByLibrary.simpleMessage(
@@ -43,6 +45,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "fantasy": MessageLookupByLibrary.simpleMessage("Fantasy"),
         "gatheringCompanions": MessageLookupByLibrary.simpleMessage(
             "Zbieram zastęp niezwykłych towarzyszy dla Twojego bohatera... Chwila cierpliwości!"),
+        "goToDashboard":
+            MessageLookupByLibrary.simpleMessage("Wracamy do Centrum Przygód"),
         "letsGetStarted": MessageLookupByLibrary.simpleMessage(
             "Zaczynamy niezwykłą przygodę!"),
         "myFairyTaleBook":
@@ -50,8 +54,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "mystery": MessageLookupByLibrary.simpleMessage("Tajemnica"),
         "nameTheStory":
             MessageLookupByLibrary.simpleMessage("Nazwij swoją historię"),
+        "newCharacterReady":
+            MessageLookupByLibrary.simpleMessage("Czas na przygodę!"),
         "pillowOfDreams":
             MessageLookupByLibrary.simpleMessage("Poduszka Marzeń"),
+        "pleaseNameCharacter":
+            MessageLookupByLibrary.simpleMessage("Oj! Nie zapomnij o imieniu"),
         "pleaseNameYourStory":
             MessageLookupByLibrary.simpleMessage("Nazwij swoją historię!"),
         "privacyPolicy":
@@ -60,6 +68,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "sciFi": MessageLookupByLibrary.simpleMessage("Sci-Fi"),
         "selectAge": MessageLookupByLibrary.simpleMessage(
             "Pomóż nam utkać opowieści, które oczarują Twoje dziecko – podaj jego wiek, a my dostosujemy magię!"),
+        "selectSomeoneElse": MessageLookupByLibrary.simpleMessage(
+            "Wybierz z listy kogoś innego"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Coś poszło nie tak :("),
         "storySaved":
@@ -70,6 +80,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcomeMessage": MessageLookupByLibrary.simpleMessage(
             "Żegnajcie nudne opowieści na dobranoc! Odkryj razem z nami świat, w którym Ty i Twoje dziecko stworzycie razem niepowtarzalne i magiczne historie. Każda noc staje się bramą do krainy wyobraźni. 🌙✨"),
         "welcomeTitle": MessageLookupByLibrary.simpleMessage(
-            "Witaj w Krainie Opowieści Marzeń!")
+            "Witaj w Krainie Opowieści Marzeń!"),
+        "writeDescription": MessageLookupByLibrary.simpleMessage(
+            "Możesz też dodać kilka słów opisu jeśli tylko chcesz"),
+        "writeName": MessageLookupByLibrary.simpleMessage(
+            "Nadaj nowej postaci wyjątkowe imię")
       };
 }

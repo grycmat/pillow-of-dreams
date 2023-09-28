@@ -1,8 +1,8 @@
 {
-  "appName": "DreamWorld Tales",
+  "appName": "Pillow Of Dreams",
   "welcomeMessage": "Dive into a realm where bedtime tales are no longer just stories, but worlds crafted by you and your child. Every evening is a new chapter in a magical adventure. 🌌📖",
   "letsGetStarted": "Embark on our magical journey!",
-  "welcomeTitle": "Welcome to DreamWorld Tales!",
+  "welcomeTitle": "Welcome to Pillow Of Dreams!",
   "gatheringCompanions": "Gathering a group of wonderful companions for your hero... Just a moment!",
   "addCompanions": "Who will accompany your hero? Select allies for a tale that's truly one-of-a-kind!",
   "discoverHero": "Who will lead your tale tonight? Choose a hero and let their adventure unfold!",
@@ -27,5 +27,12 @@
   "privacyPolicy": "Privacy Policy",
   "somethingWentWrong": "Something went wrong :(",
   "couldNotCreateHeroes": "Could not create heroes :(",
-  "couldNotCreateCompanions": "Could not create companions :("
+  "couldNotCreateCompanions": "Could not create companions :(",
+  "goToDashboard": "Explore your Story Hub",
+  "selectSomeoneElse": "Select someone else instead",
+  "pleaseNameCharacter": "Oops! Name your character first",
+  "newCharacterReady": "We are ready for an adventure!",
+  "writeDescription": "You can also write a few words about this character",
+  "writeName": "How should we call our new character?",
+  "createYourOwn": "Craft one!"
 }
