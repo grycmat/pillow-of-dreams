@@ -65,6 +65,11 @@ class _SaveStoryDialogState extends State<SaveStoryDialog> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(S.of(context).pleaseNameYourStory),
+                            action: SnackBarAction(
+                                label: S.of(context).goToDashboard,
+                                onPressed: () {
+                                  context.go('/dashboard');
+                                }),
                           ),
                         );
                         return;

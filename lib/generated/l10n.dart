@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `DreamWorld Tales`
+  /// `Pillow Of Dreams`
   String get appName {
     return Intl.message(
-      'DreamWorld Tales',
+      'Pillow Of Dreams',
       name: 'appName',
       desc: '',
       args: [],
@@ -80,10 +80,10 @@ class S {
     );
   }
 
-  /// `Welcome to DreamWorld Tales!`
+  /// `Welcome to Pillow Of Dreams!`
   String get welcomeTitle {
     return Intl.message(
-      'Welcome to DreamWorld Tales!',
+      'Welcome to Pillow Of Dreams!',
       name: 'welcomeTitle',
       desc: '',
       args: [],
@@ -335,6 +335,76 @@ class S {
     return Intl.message(
       'Could not create companions :(',
       name: 'couldNotCreateCompanions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Explore your Story Hub`
+  String get goToDashboard {
+    return Intl.message(
+      'Explore your Story Hub',
+      name: 'goToDashboard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select someone else instead`
+  String get selectSomeoneElse {
+    return Intl.message(
+      'Select someone else instead',
+      name: 'selectSomeoneElse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oops! Name your character first`
+  String get pleaseNameCharacter {
+    return Intl.message(
+      'Oops! Name your character first',
+      name: 'pleaseNameCharacter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We are ready for an adventure!`
+  String get newCharacterReady {
+    return Intl.message(
+      'We are ready for an adventure!',
+      name: 'newCharacterReady',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can also write a few words about this character`
+  String get writeDescription {
+    return Intl.message(
+      'You can also write a few words about this character',
+      name: 'writeDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `How should we call our new character?`
+  String get writeName {
+    return Intl.message(
+      'How should we call our new character?',
+      name: 'writeName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Craft one!`
+  String get createYourOwn {
+    return Intl.message(
+      'Craft one!',
+      name: 'createYourOwn',
       desc: '',
       args: [],
     );

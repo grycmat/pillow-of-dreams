@@ -1,3 +1,4 @@
+import 'package:bedtime/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class AddCustomCharacterBtn extends StatelessWidget {
@@ -28,11 +29,11 @@ class AddCustomCharacterBtn extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8),
                 child: Icon(Icons.add),
               ),
-              Text('Create your own!',
+              Text(S.of(context).createYourOwn,
                   style: textTheme.bodyLarge, softWrap: true)
             ],
           ),

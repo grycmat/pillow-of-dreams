@@ -1,5 +1,5 @@
 {
-  "appName": "Opowieści Marzeń",
+  "appName": "Poduszka Marzeń",
   "welcomeMessage": "Żegnajcie nudne opowieści na dobranoc! Odkryj razem z nami świat, w którym Ty i Twoje dziecko stworzycie razem niepowtarzalne i magiczne historie. Każda noc staje się bramą do krainy wyobraźni. 🌙✨",
   "letsGetStarted": "Zaczynamy niezwykłą przygodę!",
   "welcomeTitle": "Witaj w Krainie Opowieści Marzeń!",
@@ -27,5 +27,12 @@
   "privacyPolicy": "Polityka Prywatności",
   "somethingWentWrong": "Coś poszło nie tak :(",
   "couldNotCreateHeroes": "Nie udało się stworzyć bohaterów :(",
-  "couldNotCreateCompanions": "Nie udało się stworzyć towarzyszy :("
+  "couldNotCreateCompanions": "Nie udało się stworzyć towarzyszy :(",
+  "goToDashboard": "Wracamy do Centrum Przygód",
+  "selectSomeoneElse": "Wybierz z listy kogoś innego",
+  "pleaseNameCharacter": "Oj! Nie zapomnij o imieniu",
+  "newCharacterReady": "Czas na przygodę!",
+  "writeDescription": "Możesz też dodać kilka słów opisu jeśli tylko chcesz",
+  "writeName": "Nadaj nowej postaci wyjątkowe imię",
+  "createYourOwn": "Stwórz nową postać!"
 }
